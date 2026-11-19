@@ -1,6 +1,6 @@
 # RevFlow website
 
-Single-page lead-generation site for RevFlow's real estate system: Growth System $679/mo, All-In System $800/mo. It is one `index.html`, with no build step.
+Single-page lead-generation site for RevFlow. Plans: part-time (4 h/day) $679 Growth or $850 All-In; full-time (8 h/day) $1,199 Growth or $1,420 All-In; Autopilot (2 full-time VAs, fully automated, monthly system care) $2,699; whole team (social media VA, cold caller, admin VA + manager), price on a booking call. It is one `index.html`, with no build step.
 
 ## 1. Lead form → your email
 
@@ -16,7 +16,7 @@ Optional extras, in `const CONFIG` near the bottom of `index.html`:
 | `bookingUrl` | Your calendar link, shown after someone submits |
 | `planPrice` | Plan price the deal calculator divides by (default 800) |
 
-Each submission includes: name, email, phone, company, business_type, plan, market, ad_budget, message, consent, cta (which button they clicked), page, referrer, utm_* / gclid / fbclid, calc_leads_month, calc_close_rate, calc_profit_per_deal, timezone, and submitted_at.
+Each submission includes: name, email, phone, company, business_type, plan, location, start_timeline, message, consent, cta (which button they clicked), page, referrer, utm_* / gclid / fbclid, calc_leads_month, calc_close_rate, calc_profit_per_deal, timezone, and submitted_at.
 
 ## 2. Publish on GitHub Pages
 

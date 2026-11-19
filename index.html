@@ -3,18 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RevFlow | Real Estate Lead System + Dedicated VA from $679/mo</title>
-<meta name="description" content="RevFlow builds your real estate lead system (ads, funnel, CRM, AI follow-up) and gives you your own trained VA 4 hours a day, 5 days a week. From $679/month.">
+<title>RevFlow | Your Whole Business, Working for You. Dedicated VAs + AI Systems</title>
+<meta name="description" content="RevFlow sets up your business systems (CRM, automations, AI follow-up) and gives you your own trained VA, 4 or 8 hours a day, so your business runs even when you are on the road or out of the country. From $679/month.">
 <meta property="og:title" content="RevFlow | Revenue, Operations, Technology">
-<meta property="og:description" content="Real estate ads, CRM, AI follow-up and your own VA. One monthly price from $679.">
+<meta property="og:description" content="Your whole business, working for you, even when you are away. Dedicated VAs and AI systems from $679/mo.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#07090a">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c8f169'/%3E%3Cpath d='M9 22V10h7a4 4 0 0 1 0 8h-3l6 4' fill='none' stroke='%2307090a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"RevFlow","slogan":"Revenue, Operations, Technology","description":"Real estate lead generation systems with a dedicated virtual assistant.","areaServed":"US","makesOffer":[{"@type":"Offer","name":"Growth System","price":"679","priceCurrency":"USD"},{"@type":"Offer","name":"All-In System","price":"800","priceCurrency":"USD"}]}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"RevFlow","slogan":"Revenue, Operations, Technology","description":"Dedicated virtual assistants and AI business systems for business owners.","areaServed":"US","makesOffer":[{"@type":"Offer","name":"Part-time Growth","price":"679","priceCurrency":"USD"},{"@type":"Offer","name":"Part-time All-In","price":"850","priceCurrency":"USD"},{"@type":"Offer","name":"Full-time Growth","price":"1199","priceCurrency":"USD"},{"@type":"Offer","name":"Full-time All-In","price":"1420","priceCurrency":"USD"},{"@type":"Offer","name":"Autopilot","price":"2699","priceCurrency":"USD"}]}
 </script>
 <style>
 :root{
@@ -29,7 +30,8 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{-webkit-text-size-adjust:100%}
+body{-webkit-tap-highlight-color:transparent;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img,svg{display:block}
 .wrap{width:min(1180px,100% - 40px);margin-inline:auto}
@@ -49,7 +51,7 @@ em.s,.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacin
 
 /* nav */
 .nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
-.nav.scrolled{background:rgba(7,9,10,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav.scrolled{background:rgba(7,9,10,.94);border-color:var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
 .logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.01em;font-size:17px}
 .logo-mark{width:28px;height:28px;border-radius:8px;background:var(--lime);display:grid;place-items:center}
@@ -59,17 +61,21 @@ em.s,.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacin
 .status{display:flex;align-items:center;gap:8px;color:var(--muted)}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime);animation:pulse 2s infinite}
 @keyframes pulse{50%{opacity:.35}}
+.menu-cta{display:none}
+@media (max-width:1280px){.status{display:none!important}}
 .burger{display:none;background:none;border:0;color:var(--text);cursor:pointer;padding:6px}
 
 /* hero */
 .hero{position:relative;min-height:100vh;padding:140px 0 90px;overflow:hidden;isolation:isolate}
-#aurora{position:absolute;inset:0;width:100%;height:100%;z-index:-2}
+#aurora{position:absolute;inset:-4%;width:108%;height:108%;z-index:-2;}
+@keyframes drift{to{transform:translate3d(-2.5%,1.5%,0) scale(1.05)}}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 30% 40%,transparent 0,rgba(7,9,10,.35) 55%,var(--bg) 100%),linear-gradient(to bottom,transparent 70%,var(--bg))}
 .grid-bg{position:absolute;inset:0;z-index:-1;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse at 50% 30%,#000 10%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 10%,transparent 70%);opacity:.45}
 .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
-.tag{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid var(--line2);border-radius:8px;background:rgba(0,0,0,.35);backdrop-filter:blur(6px);color:#cfd6d1}
+.tag{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid var(--line2);border-radius:8px;background:rgba(0,0,0,.55);color:#cfd6d1}
 .tag b{color:var(--lime);font-weight:500}
 h1{font-size:clamp(42px,5.6vw,76px);line-height:.98;letter-spacing:-.035em;font-weight:600;margin:22px 0 22px}
+.nw{white-space:nowrap}
 h1 .s{font-size:1.08em;letter-spacing:-.01em;color:#f4f8ef}
 .lead{font-size:18px;color:#b9c2bc;max-width:540px}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:32px 0 18px}
@@ -77,7 +83,7 @@ h1 .s{font-size:1.08em;letter-spacing:-.01em;color:#f4f8ef}
 .micro span{color:var(--muted)}
 
 /* glass workflow card */
-.glass{position:relative;border:1px solid var(--line2);border-radius:20px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 30px 80px -20px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.08)}
+.glass{position:relative;border:1px solid var(--line2);border-radius:20px;background:linear-gradient(160deg,rgba(26,31,29,.94),rgba(12,15,14,.94));box-shadow:0 30px 80px -20px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.08)}
 .flow{padding:18px;transform:perspective(1400px) rotateY(-9deg) rotateX(4deg);transition:transform .6s}
 .flow:hover{transform:perspective(1400px) rotateY(-3deg) rotateX(1deg)}
 .flow-head{display:flex;justify-content:space-between;align-items:center;padding:2px 4px 14px;border-bottom:1px solid var(--line);color:var(--muted)}
@@ -99,7 +105,7 @@ h1 .s{font-size:1.08em;letter-spacing:-.01em;color:#f4f8ef}
 /* tools marquee */
 .strip{border-block:1px solid var(--line);padding:22px 0;overflow:hidden;position:relative}
 .strip-label{text-align:center;color:var(--dim);margin-bottom:14px}
-.marquee{display:flex;gap:48px;width:max-content;animation:scroll 40s linear infinite}
+.marquee{display:flex;gap:48px;width:max-content;animation:scroll 40s linear infinite;will-change:transform}
 .marquee span{color:#9aa39e;font-weight:500;font-size:15px;white-space:nowrap;display:flex;align-items:center;gap:48px}
 .marquee span::after{content:"";width:4px;height:4px;border-radius:50%;background:var(--dim)}
 @keyframes scroll{to{transform:translateX(-50%)}}
@@ -109,6 +115,7 @@ h1 .s{font-size:1.08em;letter-spacing:-.01em;color:#f4f8ef}
 
 /* sections */
 section{position:relative}
+
 .sec{padding:120px 0}
 .eyebrow{color:var(--lime);display:flex;align-items:center;gap:8px;margin-bottom:18px}
 .eyebrow::before{content:"";width:6px;height:6px;background:var(--lime);border-radius:2px}
@@ -184,7 +191,7 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 
 /* trust */
 .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:56px}
-.trust div{background:var(--bg);padding:30px}
+.trust>div{background:var(--bg);padding:30px}
 .trust .ic{width:38px;height:38px;border-radius:10px;border:1px solid var(--line2);display:grid;place-items:center;margin-bottom:18px;color:var(--lime)}
 .trust h4{font-size:17px;font-weight:600;margin-bottom:6px;letter-spacing:-.01em}
 .trust p{color:var(--muted);font-size:14.5px}
@@ -207,7 +214,7 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 .f{display:flex;flex-direction:column;gap:7px}
 .f.full{grid-column:1/-1}
 .f label{font-size:13px;color:#b7c0ba}
-.f input,.f select,.f textarea{background:rgba(0,0,0,.35);border:1px solid var(--line2);border-radius:10px;padding:12px 14px;color:var(--text);font:inherit;font-size:15px;outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
+.f input,.f select,.f textarea{background:rgba(0,0,0,.35);border:1px solid var(--line2);border-radius:10px;padding:13px 14px;min-height:48px;color:var(--text);font:inherit;font-size:16px;outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
 .f textarea{resize:vertical;min-height:96px}
 .f select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%238e9792' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
 .f select option{background:#111}
@@ -270,8 +277,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
   .limebox{padding:72px 22px}
 }
 
-/* ---- v2: real estate system additions ---- */
-.niches{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:48px}
+/* ---- v2: system additions ---- */
+.niches{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px}
 .niche{border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:var(--card);display:flex;gap:14px;align-items:flex-start;transition:border-color .3s,background .3s}
 .niche:hover{border-color:rgba(200,241,105,.35);background:var(--card2)}
 .niche .ni{font-family:var(--mono);font-size:11px;color:var(--lime);border:1px solid rgba(200,241,105,.25);background:rgba(200,241,105,.08);border-radius:6px;padding:2px 7px;margin-top:3px}
@@ -295,8 +302,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
 .price span{color:var(--muted);font-size:15px}
 .plan .pnote{color:var(--dim);font-size:13px;margin-bottom:22px}
 .plan ul{list-style:none;display:grid;gap:10px;border-top:1px solid var(--line);padding-top:20px;margin-bottom:28px;flex:1}
-.plan li{display:grid;grid-template-columns:20px 1fr;gap:10px;font-size:14.5px;color:#d3dad5}
-.plan li::before{content:"✓";color:var(--lime);font-family:var(--mono);font-size:13px}
+.plan li{display:block;position:relative;padding-left:30px;font-size:14.5px;color:#d3dad5}
+.plan li::before{content:"✓";position:absolute;left:0;top:1px;color:var(--lime);font-family:var(--mono);font-size:13px}
 .plan li.no{color:var(--dim)}
 .plan li.no::before{content:"–";color:var(--dim)}
 .plan li.h{color:var(--text);font-weight:600}
@@ -310,7 +317,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
 .tools-tbl summary::-webkit-details-marker{display:none}
 .tools-tbl summary i{font-style:normal;font-family:var(--mono);color:var(--lime);transition:transform .3s}
 .tools-tbl[open] summary i{transform:rotate(45deg)}
-.tools-tbl table{width:100%;border-collapse:collapse;font-size:14px}
+.tools-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tools-tbl table{width:100%;min-width:560px;border-collapse:collapse;font-size:14px}
 .tools-tbl th,.tools-tbl td{text-align:left;padding:12px 22px;border-top:1px solid var(--line)}
 .tools-tbl th{font-family:var(--mono);font-size:11.5px;color:var(--dim);font-weight:400}
 .tools-tbl td.y{color:var(--lime);font-family:var(--mono)}
@@ -325,6 +333,143 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
   .roles,.policy{grid-template-columns:1fr}
   .price b{font-size:52px}
   .tools-tbl th,.tools-tbl td{padding:10px 14px}
+}
+
+.toggle{display:flex;gap:4px;width:max-content;max-width:100%;margin:36px auto 0;padding:4px;border:1px solid var(--line2);border-radius:999px;background:rgba(0,0,0,.4)}
+.toggle button{border:0;background:none;color:var(--muted);font:inherit;font-size:14.5px;font-weight:500;padding:10px 18px;border-radius:999px;cursor:pointer;min-height:44px;transition:background .25s,color .25s}
+.toggle button em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--lime);margin-left:6px}
+.toggle button[aria-selected=true]{background:var(--lime);color:#0a0d06}
+.toggle button[aria-selected=true] em{color:#0a0d06;opacity:.7}
+.plans{margin-top:28px}
+.team{display:grid;grid-template-columns:1.6fr 1fr;gap:16px;margin-top:48px}
+.member{border:1px solid var(--line);border-radius:var(--r);background:var(--card);padding:28px;display:flex;gap:22px;align-items:flex-start}
+.member.founder{border-color:rgba(200,241,105,.35);background:linear-gradient(160deg,rgba(200,241,105,.07),rgba(255,255,255,.02))}
+.member.join{border-style:dashed}
+.avatar{flex:none;width:76px;height:76px;border-radius:20px;display:grid;place-items:center;background:var(--lime);color:#0a0d06;font-weight:700;font-size:26px;letter-spacing:-.02em;object-fit:cover}
+.member.join .avatar{background:none;border:1px dashed var(--line2);color:var(--muted)}
+.founder .avatar{width:96px;height:96px;font-size:32px}
+.role-tag{color:var(--lime)}
+.member h3{font-size:22px;font-weight:600;letter-spacing:-.02em;margin:4px 0 8px}
+.member p{color:var(--muted);font-size:15px;margin-bottom:12px}
+.member a.mono{color:var(--lime)}
+@media (max-width:980px){.team{grid-template-columns:1fr}.member{padding:22px;gap:16px}.founder .avatar{width:72px;height:72px;font-size:24px}.avatar{width:60px;height:60px;font-size:20px}}
+@media (max-width:560px){.toggle{width:100%}.toggle button{flex:1;padding:10px 8px;font-size:13px}.toggle button em{display:block;margin:0}.member{flex-direction:column}}
+
+.managed{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.mg{border:1px solid var(--line);border-radius:var(--r);background:var(--card);padding:28px;position:relative}
+.mg.hl{border-color:var(--lime);background:linear-gradient(160deg,rgba(200,241,105,.09),rgba(200,241,105,.01))}
+.mg-k{display:inline-block;color:var(--lime);border:1px solid rgba(200,241,105,.3);background:rgba(200,241,105,.08);border-radius:6px;padding:3px 8px;margin-bottom:18px}
+.mg h4{font-size:19px;font-weight:600;letter-spacing:-.01em;margin-bottom:8px}
+.mg p{color:var(--muted);font-size:15px}
+.mg a{display:inline-block;margin-top:14px;color:var(--lime)}
+.worry{margin-top:16px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card)}
+.worry-head{padding:26px 28px;border-bottom:1px solid var(--line)}
+.worry-head h3{font-size:24px;font-weight:600;letter-spacing:-.02em}
+.wrow{display:grid;grid-template-columns:1fr 1.4fr;gap:24px;padding:18px 28px;border-top:1px solid var(--line);align-items:start}
+.wrow:first-of-type{border-top:0}
+.wq{color:#cfd6d1;font-size:15.5px;font-weight:500}
+.wa{color:var(--muted);font-size:15px;display:grid;grid-template-columns:20px 1fr;gap:8px}
+.wa::before{content:"✓";color:var(--lime);font-family:var(--mono)}
+@media (max-width:980px){.managed{grid-template-columns:1fr;margin-top:36px}.mg{padding:22px}.wrow{grid-template-columns:1fr;gap:6px;padding:16px 20px}.worry-head{padding:20px}.worry-head h3{font-size:20px}.niches{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.niches{grid-template-columns:1fr}}
+
+[data-wf]{cursor:pointer}
+.niche[data-wf]:hover h4::after,.role[data-wf]:hover h4::after{content:" →";color:var(--lime)}
+.wf{margin-top:40px}
+.wf-tabs{margin:0 0 16px}
+.wf-chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px 2px 14px;-webkit-overflow-scrolling:touch}
+.wf-chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--line2);background:rgba(255,255,255,.03);color:#c9d1cc;font:inherit;font-size:14px;padding:9px 16px;border-radius:999px;cursor:pointer;min-height:42px;transition:border-color .2s,background .2s,color .2s}
+.chip:hover{border-color:rgba(200,241,105,.5)}
+.chip.on{background:rgba(200,241,105,.12);border-color:var(--lime);color:var(--lime)}
+.wf-out{padding:20px 22px 24px;animation:in .4s ease both}
+.wf-svg svg{width:100%;height:auto;margin:10px 0 6px}
+.wf-svg .node text{font-size:13px}
+.wf-svg .node .sub{font-size:11px}
+.node.done rect{fill:rgba(200,241,105,.16);stroke:var(--lime);stroke-width:1.6}
+.wf-list{display:none;list-style:none;margin:14px 0 4px;position:relative}
+.wf-list li{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;padding:10px 0;position:relative}
+.wf-list li:not(:last-child)::after{content:"";position:absolute;left:16px;top:38px;bottom:-8px;border-left:1.5px dashed rgba(200,241,105,.55)}
+.wf-list .wn{width:34px;height:28px;border-radius:8px;border:1px solid rgba(200,241,105,.4);display:grid;place-items:center;color:var(--lime);font-size:11px;background:rgba(10,13,12,.9)}
+.wf-list li.done .wn{background:var(--lime);color:#0a0d06}
+.wf-list b{display:block;font-weight:600;font-size:15.5px}
+.wf-list span:not(.wn){color:var(--muted);font-size:14px}
+.wf-meta{display:grid;grid-template-columns:1.2fr 1fr auto;gap:28px;border-top:1px solid var(--line);padding-top:20px;margin-top:8px;align-items:start}
+.wf-k{color:var(--dim);margin-bottom:10px}
+.wf-meta ul{list-style:none;display:grid;gap:8px}
+.wf-meta li{display:grid;grid-template-columns:18px 1fr;gap:8px;font-size:14.5px;color:#d3dad5}
+.wf-meta li::before{content:"✓";color:var(--lime);font-family:var(--mono);font-size:12px}
+.wf-tools{display:flex;flex-wrap:wrap;gap:6px}
+.wf-tools span{font-family:var(--mono);font-size:11.5px;padding:4px 9px;border:1px solid var(--line2);border-radius:6px;color:#bfc7c2}
+.wf-cta{align-self:center}
+@media (max-width:980px){
+  .wf-svg{display:none}
+  .wf-list{display:block}
+  .wf-meta{grid-template-columns:1fr;gap:20px}
+  .wf-cta .btn{width:100%;justify-content:center}
+  .wf-out{padding:16px 16px 20px}
+  .wf-tabs button{font-size:13px;padding:10px 12px}
+}
+
+.plan.auto{max-width:980px;margin:16px auto 0;display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;border-color:rgba(47,211,181,.6);background:linear-gradient(135deg,rgba(47,211,181,.09),rgba(200,241,105,.05) 60%,rgba(255,255,255,.01))}
+.plan.auto .badge{background:var(--teal)}
+.plan.auto .pname{color:var(--teal)}
+.plan.auto .pdesc{min-height:0}
+.auto-r{margin:0!important;border-top:0!important;padding-top:6px!important}
+.teamband{max-width:980px;margin:16px auto 0;border:1px dashed var(--line2);border-radius:22px;padding:26px 30px;display:flex;justify-content:space-between;align-items:center;gap:24px}
+.teamband .pname{font-family:var(--mono);font-size:12px;color:var(--lime)}
+.teamband h3{font-size:24px;font-weight:600;letter-spacing:-.02em;margin:6px 0}
+.teamband p{color:var(--muted);font-size:15px;max-width:560px}
+.teamband .btn{flex:none}
+.team-roles{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.team-roles span{font-family:var(--mono);font-size:12px;padding:6px 10px;border:1px solid var(--line2);border-radius:8px;color:#d3dad5}
+.team-roles .mgr{border-color:rgba(200,241,105,.45);color:var(--lime);background:rgba(200,241,105,.07)}
+@media (max-width:980px){.plan.auto{grid-template-columns:1fr;gap:8px}.teamband{flex-direction:column;align-items:flex-start;padding:22px}.teamband .btn{width:100%;justify-content:center}}
+
+/* ---- v3: phone UX + performance ---- */
+@media (max-width:980px){
+  .nw{white-space:normal}
+  .hero{min-height:auto;padding:96px 0 56px}
+  .hero .wrap{gap:36px}
+  h1{font-size:clamp(38px,10.5vw,56px);margin:18px 0 16px}
+  .lead{font-size:16.5px}
+  .cta-row{margin:24px 0 14px}
+  .cta-row .btn{flex:1 1 100%;justify-content:center;height:52px}
+  .flow{padding:14px}
+  .flow .log{display:none}
+  .how .screen{display:none}
+  .step{padding:16px 8px;cursor:default}
+  .step p{max-height:none;margin-top:6px}
+  .step .bar{display:none!important}
+  .step .n{color:var(--lime)}
+  .step h4{color:var(--text)}
+  .plan.pop{order:-1}
+  .plan{padding:26px 22px}
+  .card{padding:22px}
+  .card .letter{font-size:48px;margin:14px 0 4px}
+  .svc{margin-top:36px}
+  .niches,.roles,.trust,.roi,.plans{margin-top:36px}
+  .sec-sub{font-size:16px}
+  .q button{font-size:16px;padding:20px 0;min-height:56px}
+  .nav-links.open{max-height:calc(100vh - 68px);overflow:auto}
+  .nav-links.open a{padding:15px 0;font-size:16px}
+  .nav-links.open .menu-cta{display:flex;justify-content:center;margin-top:14px;border:0;color:#0a0d06;height:50px}
+  .mcta{bottom:calc(12px + env(safe-area-inset-bottom))}
+  .huge{margin-top:40px}
+  footer{padding-bottom:96px}
+  .grid-bg{display:none}
+}
+@media (max-width:560px){
+  .roles{grid-template-columns:1fr 1fr;gap:10px}
+  .role{padding:14px}
+  .role h4{font-size:14.5px}
+  .role p{font-size:12.5px}
+  .niche{padding:16px}
+  .trust>div{padding:22px}
+  .limebox h2{font-size:30px}
+  .stat{padding:18px}
+  .form{padding:22px 18px}
+  .roi .card{padding:22px}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -343,14 +488,16 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
       RevFlow
     </a>
     <nav class="nav-links" id="navLinks">
-      <a href="#system">The system</a>
+      <a href="#workflows">Workflows</a>
       <a href="#roles">VA roles</a>
-      <a href="#how">How it works</a>
+      <a href="#managed">Managed</a>
       <a href="#pricing">Pricing</a>
+      <a href="#team">Team</a>
       <a href="#faq">FAQ</a>
+      <a href="#apply" class="btn btn-lime menu-cta" data-cta="menu">Apply now →</a>
     </nav>
     <div class="nav-right">
-      <span class="status mono"><span class="dot"></span>now onboarding agents and investors</span>
+      <span class="status mono"><span class="dot"></span>your team is online</span>
       <a href="#apply" class="btn btn-lime btn-sm" data-cta="nav">Apply now</a>
       <button class="burger" id="burger" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
@@ -364,19 +511,19 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="wrap">
     <div>
-      <span class="tag mono"><b>●</b> real estate growth system / from $679/mo</span>
-      <h1><span style="white-space:nowrap">Your real estate leads,</span><br>worked <span class="s">for you.</span></h1>
-      <p class="lead">RevFlow builds your whole lead system (ads, funnel, CRM and AI follow-up) and gives you your own trained VA, 4 hours a day, 5 days a week, to call, follow up and book appointments.</p>
+      <span class="tag mono"><b>●</b> revenue / operations / technology</span>
+      <h1><span class="nw">Your whole business,</span><br>working <span class="s">for you.</span></h1>
+      <p class="lead">Even when you're on the road or out of the country. RevFlow sets up your business systems (CRM, automations and AI follow-up) and gives you your own trained VA, part-time or full-time, fully managed by our team so you never have to babysit.</p>
       <div class="cta-row">
         <a href="#apply" class="btn btn-lime" data-cta="hero">Apply now <span class="arr">→</span></a>
         <a href="#pricing" class="btn btn-ghost" data-cta="hero-pricing">See pricing</a>
       </div>
-      <p class="micro mono"><span>one monthly price</span> / <span>live in 7–14 days</span> / <span>no long contracts</span></p>
+      <p class="micro mono"><span>live in 24–72 h</span> / <span>we manage your VA</span> / <span>from $679/mo</span></p>
     </div>
 
     <div class="glass flow" aria-label="Example lead workflow">
       <div class="flow-head mono">
-        <span>workflow / seller-lead-to-appointment</span>
+        <span>workflow / done-for-<span id="forNiche">e-commerce</span></span>
         <span class="live"><span class="dot"></span>running</span>
       </div>
       <svg viewBox="0 0 440 250" role="img" aria-label="Lead to appointment workflow">
@@ -389,14 +536,14 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
         <path class="edge-live" d="M380 125 V165 H300"/>
         <path class="edge" d="M190 190 H110"/>
         <path class="edge-live" d="M190 190 H110"/>
-        <g class="node on"><rect x="10" y="22" width="100" height="46" rx="9"/><text x="22" y="42">New lead</text><text class="sub" x="22" y="57">Meta, Google ad</text></g>
-        <g class="node on"><rect x="160" y="22" width="110" height="46" rx="9"/><text x="172" y="42">AI text</text><text class="sub" x="172" y="57">replies in 60 s</text></g>
-        <g class="node"><rect x="50" y="102" width="110" height="46" rx="9"/><text x="62" y="122">Nurture</text><text class="sub" x="62" y="137">not ready yet</text></g>
-        <g class="node on"><rect x="330" y="78" width="100" height="46" rx="9"/><text x="342" y="98">VA calls</text><text class="sub" x="342" y="113">live, same day</text></g>
-        <g class="node on"><rect x="190" y="166" width="110" height="46" rx="9"/><text x="202" y="186">Appointment</text><text class="sub" x="202" y="201">on your calendar</text></g>
-        <g class="node on"><rect x="10" y="166" width="100" height="46" rx="9"/><text x="22" y="186">Follow-up</text><text class="sub" x="22" y="201">until they sign</text></g>
+        <g class="node on"><rect x="10" y="22" width="100" height="46" rx="9"/><text x="22" y="42">New request</text><text class="sub" x="22" y="57">any channel</text></g>
+        <g class="node on"><rect x="160" y="22" width="110" height="46" rx="9"/><text x="172" y="42">AI sorts it</text><text class="sub" x="172" y="57">replies in 60 s</text></g>
+        <g class="node"><rect x="50" y="102" width="110" height="46" rx="9"/><text x="62" y="122">Needs you?</text><text class="sub" x="62" y="137">flagged to you</text></g>
+        <g class="node on"><rect x="330" y="78" width="100" height="46" rx="9"/><text x="342" y="98">Your VA</text><text class="sub" x="342" y="113">handles it</text></g>
+        <g class="node on"><rect x="190" y="166" width="110" height="46" rx="9"/><text x="202" y="186">RevFlow QA</text><text class="sub" x="202" y="201">reviewed weekly</text></g>
+        <g class="node on"><rect x="10" y="166" width="100" height="46" rx="9"/><text x="22" y="186">Done ✓</text><text class="sub" x="22" y="201">in your EOD</text></g>
         <circle r="3.5" fill="#c8f169"><animateMotion dur="5s" repeatCount="indefinite" path="M110 45 H160 M270 45 H300 V100 H330 M380 125 V165 H300 M190 190 H110"/></circle>
-        <text x="273" y="36" font-family="JetBrains Mono" font-size="9" fill="#7f8a84">hot</text>
+        <text x="272" y="36" font-family="JetBrains Mono" font-size="9" fill="#7f8a84">routine</text>
       </svg>
       <div class="log mono" id="log"></div>
     </div>
@@ -405,9 +552,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
 
 <!-- ============ TOOLS STRIP ============ -->
 <div class="strip" aria-label="Platforms we work in">
-  <p class="strip-label mono">built on the platforms real estate already runs on</p>
+  <p class="strip-label mono">your team already works in your stack</p>
   <div class="marquee" id="marquee">
-    <span>Meta Ads</span><span>Google Ads</span><span>GoHighLevel</span><span>Follow Up Boss</span><span>Podio</span><span>REsimpli</span><span>PropStream</span><span>BatchLeads</span><span>kvCORE</span><span>Zillow</span><span>CallRail</span><span>Google Workspace</span><span>Slack</span><span>QuickBooks</span><span>n8n</span>
+    <span>Zoom</span><span>Calendly</span><span>GoHighLevel</span><span>HubSpot</span><span>Shopify</span><span>QuickBooks</span><span>Google Workspace</span><span>Microsoft 365</span><span>Slack</span><span>ClickUp</span><span>Zendesk</span><span>Notion</span><span>Canva</span><span>n8n</span><span>Zapier</span>
   </div>
 </div>
 
@@ -417,22 +564,22 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
     <div class="reveal">
       <p class="eyebrow mono">what you get</p>
       <h2>One system. Leads in, <span class="s">appointments</span> out.</h2>
-      <p class="sec-sub">Most agencies sell you ads and leave you to chase the leads. RevFlow runs the whole chain: the ads, the follow-up and the person who picks up the phone.</p>
+      <p class="sec-sub">Most agencies sell you one piece and leave you to run the rest. RevFlow runs the whole chain: the systems, the follow-up, the admin and the person who picks up the phone.</p>
     </div>
     <div class="svc">
       <article class="card reveal">
         <div class="num mono"><span>01</span><span>revenue</span></div>
         <div class="letter">R</div>
-        <h3>Ads and funnels</h3>
-        <p>Paid campaigns that bring in motivated sellers, buyers or owners.</p>
-        <ul><li>Meta and Google ad campaigns</li><li>Landing pages and lead forms</li><li>Pixel and conversion tracking</li><li>Weekly creative testing</li></ul>
+        <h3>Lead capture and sales</h3>
+        <p>Every inquiry captured, answered and tracked until it becomes a customer.</p>
+        <ul><li>Lead capture from every channel</li><li>Website forms and booking pages</li><li>Instant AI replies to new inquiries</li><li>Pipeline tracking from first contact to sale</li></ul>
       </article>
       <article class="card reveal">
         <div class="num mono"><span>02</span><span>operations</span></div>
         <div class="letter">O</div>
         <h3>Your own VA</h3>
-        <p>A trained assistant who works your leads 4 hours a day, Monday to Friday.</p>
-        <ul><li>Calls new leads the same day</li><li>Follow-up by call, text and email</li><li>Books appointments on your calendar</li><li>Daily end-of-day report</li></ul>
+        <p>A trained assistant, 4 or 8 hours a day, Monday to Friday, in your time zone.</p>
+        <ul><li>Calls and follows up with leads</li><li>Inbox, calendar and customer support</li><li>Admin, data entry and bookkeeping help</li><li>Daily end-of-day report</li></ul>
       </article>
       <article class="card reveal">
         <div class="num mono"><span>03</span><span>technology</span></div>
@@ -450,16 +597,34 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
   <div class="wrap">
     <div class="reveal">
       <p class="eyebrow mono">who it's for</p>
-      <h2>Built for <span class="s">real estate,</span> not every industry.</h2>
-      <p class="sec-sub">Same system, tuned for how your business finds and closes deals.</p>
+      <h2>If your business can use a VA, <span class="s">we can run it.</span></h2>
+      <p class="sec-sub">Small business or growing team, online or local: the same managed system, tuned to how your business works.</p>
     </div>
     <div class="niches">
-      <div class="niche reveal"><span class="ni">01</span><div><h4>Wholesalers</h4><p>Motivated-seller ads, cold calling and offer follow-up.</p></div></div>
-      <div class="niche reveal"><span class="ni">02</span><div><h4>Agents and teams</h4><p>Seller and buyer leads, listing appointments and sphere nurture.</p></div></div>
-      <div class="niche reveal"><span class="ni">03</span><div><h4>Fix-and-flip investors</h4><p>Off-market deal flow and fast seller response.</p></div></div>
-      <div class="niche reveal"><span class="ni">04</span><div><h4>Property managers</h4><p>Owner leads, tenant inquiries and showing schedules.</p></div></div>
-      <div class="niche reveal"><span class="ni">05</span><div><h4>Short-term rental hosts</h4><p>Direct bookings, guest messages and owner acquisition.</p></div></div>
-      <div class="niche reveal"><span class="ni">06</span><div><h4>Land and note investors</h4><p>List marketing, skip-traced outreach and deal tracking.</p></div></div>
+      <div class="niche reveal" data-wf="industry:ecom"><span class="ni">01</span><div><h4>E-commerce and online stores</h4><p>Orders, customer emails, listings, returns and supplier follow-up.</p></div></div>
+      <div class="niche reveal" data-wf="industry:agency"><span class="ni">02</span><div><h4>Agencies and consultants</h4><p>Client admin, reporting, scheduling and your own lead generation.</p></div></div>
+      <div class="niche reveal" data-wf="industry:home"><span class="ni">03</span><div><h4>Home services and trades</h4><p>Quotes, scheduling, dispatch and missed-call follow-up.</p></div></div>
+      <div class="niche reveal" data-wf="industry:health"><span class="ni">04</span><div><h4>Healthcare and clinics</h4><p>Appointment booking, reminders, intake forms and front desk.</p></div></div>
+      <div class="niche reveal" data-wf="industry:legal"><span class="ni">05</span><div><h4>Legal, accounting and finance</h4><p>Intake, document prep, billing and client follow-up.</p></div></div>
+      <div class="niche reveal" data-wf="industry:coach"><span class="ni">06</span><div><h4>Coaches, creators and courses</h4><p>Inbox, community, content scheduling and sales calls.</p></div></div>
+      <div class="niche reveal" data-wf="industry:saas"><span class="ni">07</span><div><h4>SaaS and tech startups</h4><p>Customer support, onboarding, QA testing and research.</p></div></div>
+      <div class="niche reveal" data-wf="industry:local"><span class="ni">08</span><div><h4>Local businesses</h4><p>Salons, gyms, restaurants and shops: bookings, messages and reviews.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORKFLOW EXPLORER ============ -->
+<section class="sec" id="workflows" style="padding-top:20px">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow mono">see it work</p>
+      <h2>Pick your business. <span class="s">Watch it run.</span></h2>
+      <p class="sec-sub">Choose an industry, a VA role or a tech role to see a sample workflow we'd set up for you. Tap any industry or role card on this page to jump here.</p>
+    </div>
+    <div class="wf reveal" id="wfExplorer">
+      <div class="toggle wf-tabs" id="wfTabs" role="tablist" aria-label="Workflow type"></div>
+      <div class="wf-chips" id="wfChips"></div>
+      <div class="glass wf-out" id="wfOut" aria-live="polite"></div>
     </div>
   </div>
 </section>
@@ -470,21 +635,21 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
     <div class="reveal">
       <p class="eyebrow mono">choose your va's focus</p>
       <h2>Pick the role. We <span class="s">train</span> the VA for it.</h2>
-      <p class="sec-sub">Every plan includes one dedicated VA. Tell us what you need most and we'll match and train someone for that role. You can change their focus as you grow.</p>
+      <p class="sec-sub">Every plan includes a dedicated VA, part-time or full-time, and we can build you a whole team. Tell us what you need most and we'll match and train someone for that role. You can change their focus as you grow.</p>
     </div>
     <div class="roles">
-      <div class="role reveal"><span class="rn">role / 01</span><h4>Cold caller</h4><p>Dials your lists and passes warm sellers to you.</p></div>
-      <div class="role reveal"><span class="rn">role / 02</span><h4>Lead manager</h4><p>Qualifies new leads and keeps your pipeline moving.</p></div>
-      <div class="role reveal"><span class="rn">role / 03</span><h4>Follow-up specialist</h4><p>Works old leads by call, text and email until they're ready.</p></div>
-      <div class="role reveal"><span class="rn">role / 04</span><h4>Appointment setter</h4><p>Books qualified appointments straight onto your calendar.</p></div>
-      <div class="role reveal"><span class="rn">role / 05</span><h4>Acquisitions support</h4><p>Preps comps and offer details and follows up on contracts.</p></div>
-      <div class="role reveal"><span class="rn">role / 06</span><h4>Dispositions and buyers</h4><p>Builds cash-buyer lists and sends out your deals.</p></div>
-      <div class="role reveal"><span class="rn">role / 07</span><h4>Transaction coordinator</h4><p>Tracks deadlines, documents and parties from contract to close.</p></div>
-      <div class="role reveal"><span class="rn">role / 08</span><h4>Social media VA</h4><p>Posts listings and deals, and answers comments and DMs.</p></div>
-      <div class="role reveal"><span class="rn">role / 09</span><h4>Inside sales / ISA</h4><p>Calls inbound buyer and seller leads within minutes.</p></div>
-      <div class="role reveal"><span class="rn">role / 10</span><h4>Executive assistant</h4><p>Runs your inbox, calendar and admin.</p></div>
-      <div class="role reveal"><span class="rn">role / 11</span><h4>Bookkeeping VA</h4><p>Keeps expenses and QuickBooks up to date.</p></div>
-      <div class="role reveal"><span class="rn">role / 12</span><h4>Receptionist</h4><p>Answers and routes calls during your business hours.</p></div>
+      <div class="role reveal" data-wf="va:ea"><span class="rn">role / 01</span><h4>Executive assistant</h4><p>Runs your inbox, calendar, travel and admin.</p></div>
+      <div class="role reveal" data-wf="va:support"><span class="rn">role / 02</span><h4>Customer support</h4><p>Answers email, chat and tickets in your brand voice.</p></div>
+      <div class="role reveal" data-wf="va:setter"><span class="rn">role / 03</span><h4>Appointment setter</h4><p>Books qualified calls straight onto your calendar.</p></div>
+      <div class="role reveal" data-wf="va:leadgen"><span class="rn">role / 04</span><h4>Lead generation</h4><p>Builds lists, finds contacts and starts outreach.</p></div>
+      <div class="role reveal" data-wf="va:sales"><span class="rn">role / 05</span><h4>Sales follow-up</h4><p>Works your leads by call, text and email until they buy.</p></div>
+      <div class="role reveal" data-wf="va:social"><span class="rn">role / 06</span><h4>Social media VA</h4><p>Schedules posts and answers comments and DMs.</p></div>
+      <div class="role reveal" data-wf="va:books"><span class="rn">role / 07</span><h4>Bookkeeping VA</h4><p>Keeps invoices, expenses and QuickBooks up to date.</p></div>
+      <div class="role reveal" data-wf="va:ecomva"><span class="rn">role / 08</span><h4>E-commerce VA</h4><p>Handles orders, listings, returns and supplier emails.</p></div>
+      <div class="role reveal" data-wf="va:data"><span class="rn">role / 09</span><h4>Data entry and research</h4><p>Cleans lists, updates records and researches anything you need.</p></div>
+      <div class="role reveal" data-wf="tech:it"><span class="rn">role / 10</span><h4>IT helpdesk</h4><p>Sets up accounts and devices and fixes tech issues.</p></div>
+      <div class="role reveal" data-wf="tech:auto"><span class="rn">role / 11</span><h4>Web and automation</h4><p>Builds your website, funnels and AI workflows.</p></div>
+      <div class="role reveal" data-wf="va:recep"><span class="rn">role / 12</span><h4>Receptionist</h4><p>Answers and routes calls during your business hours.</p></div>
     </div>
   </div>
 </section>
@@ -494,14 +659,14 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
   <div class="wrap">
     <div class="reveal">
       <p class="eyebrow mono">how it works</p>
-      <h2>From first call to <span class="s">live leads</span> in about two weeks.</h2>
+      <h2>Your whole system and your VA, <span class="s">live in 24–72 hours.</span></h2>
     </div>
     <div class="how">
       <div class="steps reveal" id="steps">
-        <div class="step active" data-i="0"><span class="n">day 1</span><div><h4>Strategy call</h4><p>A 30-minute call. We learn your market, your offer and your goals, and map out your game plan.</p><div class="bar"><i></i></div></div></div>
-        <div class="step" data-i="1"><span class="n">days 2–14</span><div><h4>Build and launch</h4><p>We set up your ad account, tracking, landing page, CRM, AI follow-up and campaigns, then go live.</p><div class="bar"><i></i></div></div></div>
-        <div class="step" data-i="2"><span class="n">week 2</span><div><h4>Your VA starts</h4><p>Your matched VA is trained on your scripts, CRM and market, and starts working leads as they come in.</p><div class="bar"><i></i></div></div></div>
-        <div class="step" data-i="3"><span class="n">ongoing</span><div><h4>Track and scale</h4><p>Weekly reports, new ad creatives, and more budget behind what's working.</p><div class="bar"><i></i></div></div></div>
+        <div class="step active" data-i="0"><span class="n">day 1</span><div><h4>Strategy call</h4><p>A 30-minute call. We learn your business, your goals and what's eating your week, and map out your game plan.</p><div class="bar"><i></i></div></div></div>
+        <div class="step" data-i="1"><span class="n">24–72 h</span><div><h4>Build and launch</h4><p>We set up your CRM, automations, AI follow-up and your VA's workspace, then go live.</p><div class="bar"><i></i></div></div></div>
+        <div class="step" data-i="2"><span class="n">24–72 h</span><div><h4>Your VA starts</h4><p>Your matched VA is trained on your tools, scripts and SOPs, and takes over the work you hand off.</p><div class="bar"><i></i></div></div></div>
+        <div class="step" data-i="3"><span class="n">ongoing</span><div><h4>We manage, you grow</h4><p>We review your VA's performance every week, and you get a check-in call every two weeks to plan what's next.</p><div class="bar"><i></i></div></div></div>
       </div>
 
       <div class="glass screen reveal">
@@ -509,39 +674,39 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
         <div class="panel active">
           <h5>Your game plan</h5><p class="k">Agreed on the strategy call</p>
           <div class="rows">
-            <div class="r"><span>Market</span><span class="mono">your city or county</span><span class="pill">set</span></div>
-            <div class="r"><span>Lead type</span><span class="mono">sellers / buyers / owners</span><span class="pill">set</span></div>
-            <div class="r"><span>Monthly ad budget</span><span class="mono">you decide</span><span class="pill">set</span></div>
-            <div class="r"><span>VA role</span><span class="mono">e.g. lead manager</span><span class="pill">set</span></div>
-            <div class="r"><span>Plan</span><span class="mono">$679 or $800 / mo</span><span class="pill g">choose</span></div>
+            <div class="r"><span>Business</span><span class="mono">your industry</span><span class="pill">set</span></div>
+            <div class="r"><span>Goal</span><span class="mono">more leads, more time</span><span class="pill">set</span></div>
+            <div class="r"><span>Tasks to hand off</span><span class="mono">your top 5</span><span class="pill">set</span></div>
+            <div class="r"><span>VA role</span><span class="mono">e.g. executive assistant</span><span class="pill">set</span></div>
+            <div class="r"><span>Plan</span><span class="mono">4 or 8 hours a day</span><span class="pill g">choose</span></div>
           </div>
         </div>
         <div class="panel">
-          <h5>Build checklist</h5><p class="k">Done for you in days 2–14</p>
+          <h5>Build checklist</h5><p class="k">Done for you in 24–72 hours</p>
           <div class="rows">
-            <div class="r"><span>Ad account and pixel</span><span class="pill">done</span></div>
-            <div class="r"><span>Landing page and form</span><span class="pill">done</span></div>
+            <div class="r"><span>Workspace and secure logins</span><span class="pill">done</span></div>
+            <div class="r"><span>Booking page and forms</span><span class="pill">done</span></div>
             <div class="r"><span>CRM pipeline and stages</span><span class="pill">done</span></div>
             <div class="r"><span>AI text follow-up</span><span class="pill">done</span></div>
-            <div class="r"><span>Campaigns live</span><span class="pill g">next</span></div>
+            <div class="r"><span>Go live</span><span class="pill g">next</span></div>
           </div>
         </div>
         <div class="panel">
-          <h5>Your VA</h5><p class="k">4 hours a day, Monday to Friday</p>
+          <h5>Your VA</h5><p class="k">4 or 8 hours a day, Monday to Friday</p>
           <div class="rows">
-            <div class="r"><span>Trained on your scripts</span><span class="pill">done</span></div>
-            <div class="r"><span>Access to CRM and dialer</span><span class="pill">done</span></div>
+            <div class="r"><span>Trained on your SOPs</span><span class="pill">done</span></div>
+            <div class="r"><span>Access to your tools</span><span class="pill">done</span></div>
             <div class="r"><span>Shift set to your time zone</span><span class="pill">done</span></div>
             <div class="r"><span>Daily EOD report</span><span class="mono">every weekday</span><span class="pill">on</span></div>
           </div>
         </div>
         <div class="panel">
-          <h5>Weekly report</h5><p class="k">What lands in your inbox every Monday</p>
+          <h5>Weekly performance review</h5><p class="k">Done by our team, shared with you</p>
           <div class="rows">
-            <div class="r"><span>Leads this week</span><div class="meter"><i style="width:82%"></i></div></div>
-            <div class="r"><span>Leads contacted same day</span><div class="meter"><i style="width:94%"></i></div></div>
-            <div class="r"><span>Appointments set</span><div class="meter"><i style="width:61%"></i></div></div>
-            <div class="r"><span>Next ad test</span><span class="pill">planned</span></div>
+            <div class="r"><span>Hours worked vs plan</span><div class="meter"><i style="width:96%"></i></div></div>
+            <div class="r"><span>Tasks done on time</span><div class="meter"><i style="width:91%"></i></div></div>
+            <div class="r"><span>Quality score</span><div class="meter"><i style="width:88%"></i></div></div>
+            <div class="r"><span>Next check-in call</span><span class="pill">booked</span></div>
           </div>
         </div>
       </div>
@@ -555,37 +720,44 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
     <div class="reveal" style="text-align:center">
       <p class="eyebrow mono" style="justify-content:center">pricing</p>
       <h2 style="margin-inline:auto">One system. One VA. <span class="s">One price.</span></h2>
-      <p class="sec-sub" style="margin-inline:auto">Both plans include the full system and your own VA. The only difference is who pays for the tools.</p>
+      <p class="sec-sub" style="margin-inline:auto">Pick part-time or full-time, choose whether we include the tools, or let us run everything on Autopilot.</p>
+    </div>
+    <div class="toggle reveal" role="tablist" aria-label="VA hours">
+      <button role="tab" data-hours="pt" aria-selected="false">Part-time · 4 h/day</button>
+      <button role="tab" data-hours="ft" aria-selected="true">Full-time · 8 h/day <em>save 12%/hr</em></button>
     </div>
     <div class="plans">
       <div class="plan reveal">
-        <span class="pname">plan / system</span>
+        <span class="pname">plan / growth</span>
         <h3>Growth System</h3>
         <p class="pdesc">The full system and your own VA. You bring your own tools.</p>
-        <div class="price"><b>$679</b><span>/ month</span></div>
-        <p class="pnote">Tools not included. Ad spend paid directly to Meta or Google.</p>
+        <div class="price"><b data-pt="$679" data-ft="$1,199">$1,199</b><span>/ month</span></div>
+        <p class="pnote"><span data-pt="About $7.83 per VA hour" data-ft="About $6.92 per VA hour">About $6.92 per VA hour</span>. Tools not included.</p>
         <ul>
-          <li class="h">Your own dedicated VA</li>
-          <li>4 hours a day, 5 days a week (Mon–Fri)</li>
-          <li>Ad campaign setup and management</li>
-          <li>Landing page and lead funnel</li>
+          <li class="h">Your own dedicated VA, managed by RevFlow</li>
+          <li><span data-pt="4 hours a day" data-ft="8 hours a day">8 hours a day</span>, 5 days a week (Mon–Fri)</li>
+          <li>Custom workflows for your business</li>
+          <li>Lead capture into your existing tools</li>
           <li>CRM pipeline setup and automations</li>
           <li>AI text follow-up and appointment booking</li>
-          <li>Daily EOD reports and weekly results report</li>
+          <li>Weekly performance review by our team</li>
+          <li>Check-in call every 2 weeks</li>
+          <li>Daily EOD reports and backup VA coverage</li>
           <li class="no">Tools: you pay for your CRM, dialer, phone line and lists</li>
         </ul>
-        <a href="#apply" class="btn btn-ghost" data-plan="Growth System ($679/mo)" data-cta="plan-679">Choose Growth System <span class="arr">→</span></a>
+        <a href="#apply" class="btn btn-ghost" data-plan-pt="Part-time Growth ($679/mo)" data-plan-ft="Full-time Growth ($1,199/mo)" data-cta="plan-growth">Choose Growth <span class="arr">→</span></a>
       </div>
       <div class="plan pop reveal">
         <span class="badge">most popular</span>
         <span class="pname">plan / all-in</span>
         <h3>All-In System</h3>
-        <p class="pdesc">Everything in Growth, plus every tool your system and VA need.</p>
-        <div class="price"><b>$800</b><span>/ month</span></div>
-        <p class="pnote">All tools included. Ad spend paid directly to Meta or Google.</p>
+        <p class="pdesc">Everything in Growth, plus a landing page, lead forms and every tool your system and VA need.</p>
+        <div class="price"><b data-pt="$850" data-ft="$1,420">$1,420</b><span>/ month</span></div>
+        <p class="pnote">All tools included, one bill.</p>
         <ul>
-          <li class="h">Everything in Growth System</li>
-          <li>Your own dedicated VA, 4 h/day, Mon–Fri</li>
+          <li class="h">Everything in Growth, fully managed</li>
+          <li>Your own dedicated VA, <span data-pt="4 h/day" data-ft="8 h/day">8 h/day</span>, Mon–Fri</li>
+          <li class="h">Landing page and lead forms that send every lead straight into your CRM</li>
           <li>GoHighLevel CRM, funnels and calendars</li>
           <li>AI text agent</li>
           <li>Dialer and local phone number for your VA</li>
@@ -593,31 +765,69 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
           <li>Password vault and time tracking for your VA</li>
           <li>One bill instead of five subscriptions</li>
         </ul>
-        <a href="#apply" class="btn btn-lime" data-plan="All-In System ($800/mo)" data-cta="plan-800">Choose All-In System <span class="arr">→</span></a>
+        <a href="#apply" class="btn btn-lime" data-plan-pt="Part-time All-In ($850/mo)" data-plan-ft="Full-time All-In ($1,420/mo)" data-cta="plan-allin">Choose All-In <span class="arr">→</span></a>
       </div>
+    </div>
+
+    <div class="plan auto reveal">
+      <span class="badge">done for you</span>
+      <div class="auto-l">
+        <span class="pname">plan / autopilot</span>
+        <h3>Autopilot System</h3>
+        <p class="pdesc">A fully automated business system run by two full-time VAs. You don't do anything but check your results and your leads.</p>
+        <div class="price"><b>$2,699</b><span>/ month</span></div>
+        <p class="pnote">2 full-time VAs, all tools and monthly system care included.</p>
+        <a href="#apply" class="btn btn-lime" data-plan-fixed="Autopilot, 2 full-time VAs ($2,699/mo)" data-cta="plan-autopilot">Choose Autopilot <span class="arr">→</span></a>
+      </div>
+      <ul class="auto-r">
+        <li class="h">2 dedicated full-time VAs (8 h/day each, Mon–Fri), managed by RevFlow</li>
+        <li>Your whole system automated end to end</li>
+        <li>Landing pages and lead forms built for you</li>
+        <li>Every lead's details saved to your database and company CRM automatically</li>
+        <li>AI follow-up and appointment booking, 24/7</li>
+        <li>All tools included, one bill</li>
+        <li>Monthly retainer: we monitor and maintain every system and site so it keeps working</li>
+        <li>Weekly performance reviews and a check-in call every 2 weeks</li>
+        <li class="h">Your only job: check results, check leads</li>
+      </ul>
+    </div>
+
+    <div class="teamband reveal">
+      <div>
+        <span class="pname">team / price on call</span>
+        <h3>Hire a <span class="s">whole team.</span></h3>
+        <p>A ready-made team, set up and managed by RevFlow. Pricing is tailored to your business and discussed on a quick booking call.</p>
+        <div class="team-roles">
+          <span>1 × Social media marketing VA</span>
+          <span>1 × Cold caller</span>
+          <span>1 × Admin VA</span>
+          <span class="mgr">1 × Manager who oversees everything</span>
+        </div>
+      </div>
+      <a href="#apply" class="btn btn-lime" data-plan-fixed="Whole team: social media VA, cold caller, admin + manager (price on call)" data-cta="plan-team">Book a call for pricing <span class="arr">→</span></a>
     </div>
 
     <div class="policy reveal">
       <div><b>Billed monthly</b><span>One flat price in USD, by card or ACH.</span></div>
-      <div><b>Ad spend is separate</b><span>You pay Meta or Google directly and keep the account.</span></div>
-      <div><b>Need more hours?</b><span>Full-time VAs or extra roles are quoted on your call.</span></div>
+      <div><b>You own everything</b><span>Your accounts, data and logins always stay yours.</span></div>
+      <div><b>Switch anytime</b><span>Move between part-time and full-time as you grow.</span></div>
       <div><b>No long contracts</b><span>Month to month. Cancel with notice.</span></div>
     </div>
 
     <details class="tools-tbl reveal">
       <summary>What tools does each plan cover? <i>+</i></summary>
-      <table>
-        <thead><tr><th>tool</th><th>what it's for</th><th>growth $679</th><th>all-in $800</th></tr></thead>
+      <div class="tools-scroll"><table>
+        <thead><tr><th>tool</th><th>what it's for</th><th>growth</th><th>all-in</th></tr></thead>
         <tbody>
           <tr><td>CRM, funnels, calendars</td><td>Store leads, run the pipeline, book appointments</td><td class="n">you provide</td><td class="y">included</td></tr>
           <tr><td>AI text agent</td><td>Replies to new leads in under a minute</td><td class="n">you provide</td><td class="y">included</td></tr>
           <tr><td>Dialer and phone number</td><td>Your VA's calls and texts from a local number</td><td class="n">you provide</td><td class="y">included</td></tr>
-          <tr><td>SMS and email sending</td><td>Follow-up campaigns</td><td class="n">you provide</td><td class="y">included</td></tr>
+          <tr><td>SMS and email sending</td><td>Follow-up messages</td><td class="n">you provide</td><td class="y">included</td></tr>
+          <tr><td>Landing page and lead forms</td><td>Leads go straight into your CRM</td><td class="n">not included</td><td class="y">included</td></tr>
           <tr><td>Password vault, time tracking</td><td>Secure logins and verified VA hours</td><td class="n">you provide</td><td class="y">included</td></tr>
-          <tr><td>Lead lists and skip tracing</td><td>Data for cold calling and texting</td><td class="n">you provide</td><td class="n">you provide</td></tr>
-          <tr><td>Ad spend</td><td>Budget paid to Meta or Google</td><td class="n">you provide</td><td class="n">you provide</td></tr>
+          <tr><td>Lead lists and data</td><td>Contact data for outreach</td><td class="n">you provide</td><td class="n">you provide</td></tr>
         </tbody>
-      </table>
+      </table></div>
     </details>
   </div>
 </section>
@@ -626,26 +836,65 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
 <section class="sec" id="roi" style="padding-top:20px">
   <div class="wrap">
     <div class="reveal">
-      <p class="eyebrow mono">deal calculator</p>
-      <h2>How many deals pay for <span class="s">the whole system?</span></h2>
-      <p class="sec-sub">Move the sliders with your own numbers. Usually one closed deal covers months of RevFlow.</p>
+      <p class="eyebrow mono">roi calculator</p>
+      <h2>How many sales pay for <span class="s">the whole system?</span></h2>
+      <p class="sec-sub">Move the sliders with your own numbers to see how quickly the system pays for itself.</p>
     </div>
     <div class="roi">
       <div class="card reveal">
         <div class="field"><label for="leads">Leads per month <b id="leadsV">60</b></label><input type="range" id="leads" min="10" max="300" step="5" value="60"></div>
-        <div class="field"><label for="conv">Leads that become a closed deal <b id="convV">2%</b></label><input type="range" id="conv" min="0.5" max="10" step="0.5" value="2"></div>
-        <div class="field"><label for="fee">Average profit or commission per deal (USD) <b id="feeV">$8,000</b></label><input type="range" id="fee" min="1000" max="30000" step="500" value="8000"></div>
-        <p class="note">Your own estimates, for illustration. Results depend on your market, offer and ad budget. Ad spend is not included in the plan price.</p>
+        <div class="field"><label for="conv">Leads that become a customer <b id="convV">2%</b></label><input type="range" id="conv" min="0.5" max="10" step="0.5" value="2"></div>
+        <div class="field"><label for="fee">Average profit per customer (USD) <b id="feeV">$2,500</b></label><input type="range" id="fee" min="100" max="20000" step="100" value="2500"></div>
+        <p class="note">Your own estimates, for illustration. Results depend on your industry and offer.</p>
       </div>
       <div class="card reveal">
         <div class="stats">
-          <div class="stat"><div class="v l" id="sDeals">0</div><div class="lb">deals per month</div></div>
+          <div class="stat"><div class="v l" id="sDeals">0</div><div class="lb">new customers per month</div></div>
           <div class="stat"><div class="v" id="sRev">$0</div><div class="lb">revenue per month</div></div>
-          <div class="stat"><div class="v" id="sCover">0</div><div class="lb">months of All-In covered</div></div>
-          <div class="stat"><div class="v" id="sRoi">0×</div><div class="lb">return on the $800 plan</div></div>
+          <div class="stat"><div class="v" id="sCover">0</div><div class="lb">months of your plan covered</div></div>
+          <div class="stat"><div class="v" id="sRoi">0×</div><div class="lb">return on <span id="roiPlan">$1,420</span>/mo</div></div>
         </div>
         <a href="#apply" class="btn btn-lime" style="width:100%;justify-content:center" data-cta="roi">Get my game plan <span class="arr">→</span></a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MANAGED ============ -->
+<section class="sec" id="managed" style="padding-top:20px">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow mono">fully managed</p>
+      <h2>You get the results. <span class="s">We manage the VA.</span></h2>
+      <p class="sec-sub">Hiring a VA on your own means training, checking and chasing. With RevFlow, our team does that for you, every week.</p>
+    </div>
+    <div class="managed">
+      <div class="mg reveal">
+        <span class="mg-k mono">every day</span>
+        <h4>End-of-day report</h4>
+        <p>Your VA sends what they finished, what's blocked and what's next, before they log off.</p>
+      </div>
+      <div class="mg reveal">
+        <span class="mg-k mono">every week</span>
+        <h4>Performance review by our team</h4>
+        <p>We review your VA's hours, output, response times and quality, and coach them before small issues become your problem.</p>
+      </div>
+      <div class="mg hl reveal">
+        <span class="mg-k mono">every 2 weeks</span>
+        <h4>Your check-in call</h4>
+        <p>Book a call with your RevFlow account manager every two weeks to review results, adjust priorities and plan what to hand off next.</p>
+        <a href="#apply" class="mono">book your first call →</a>
+      </div>
+    </div>
+
+    <div class="worry reveal">
+      <div class="worry-head"><h3>What could go wrong? <span class="s">We've already covered it.</span></h3></div>
+      <div class="wrow"><span class="wq">"My VA gets sick or loses power."</span><span class="wa">A trained backup steps in, and every VA keeps backup power and a second internet line.</span></div>
+      <div class="wrow"><span class="wq">"The quality slips over time."</span><span class="wa">Our weekly review catches it early, and we coach or correct it before it reaches you.</span></div>
+      <div class="wrow"><span class="wq">"My VA isn't the right fit."</span><span class="wa">Tell us on your check-in call or anytime. We'll rematch you with a new VA.</span></div>
+      <div class="wrow"><span class="wq">"I won't know what's happening."</span><span class="wa">Daily EOD reports, a weekly summary and a call every two weeks, so nothing is a surprise.</span></div>
+      <div class="wrow"><span class="wq">"Someone mishandles my data."</span><span class="wa">NDAs, password vaults instead of shared logins, and access removed the day an engagement ends.</span></div>
+      <div class="wrow"><span class="wq">"I'm locked into a contract."</span><span class="wa">Month to month. You own your accounts and data, and you can cancel with notice.</span></div>
     </div>
   </div>
 </section>
@@ -660,10 +909,43 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
     <div class="trust reveal">
       <div><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5M14 20c0-2 1.5-3.5 3-3.5s4 1 4 3.5"/></svg></div><h4>A backup for your VA</h4><p>A trained backup knows your scripts, so sick days and outages don't stop your follow-up.</p></div>
       <div><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><h4>Power and internet redundancy</h4><p>Every VA is required to have backup power and a second internet connection.</p></div>
-      <div><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h4>Your hours, your time zone</h4><p>Your VA's 4-hour shift is set to your local business hours, Eastern through Pacific.</p></div>
+      <div><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h4>Works while you travel</h4><p>Your VA's shift follows your business hours, Eastern through Pacific, even when you're in another country.</p></div>
       <div><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><h4>Secure by default</h4><p>NDAs, password vaults instead of shared logins, and access removed the day you leave.</p></div>
       <div><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5M4 19h16M8 15l4-4 3 3 5-6"/></svg></div><h4>Reporting you can see</h4><p>Daily EOD reports from your VA and a Monday report on leads, calls and appointments.</p></div>
-      <div><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></div><h4>Real estate trained</h4><p>Scripts, CRM stages and follow-up schedules built for real estate, not copied from another industry.</p></div>
+      <div><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></div><h4>Trained for your industry</h4><p>SOPs, scripts and follow-up schedules built around how your business actually works.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM ============ -->
+<section class="sec" id="team" style="padding-top:20px">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow mono">meet the team</p>
+      <h2>The people behind <span class="s">your back office.</span></h2>
+    </div>
+    <div class="team">
+      <!-- To add a photo: upload it as team/dwight.jpg and replace the <span class="avatar">DC</span>
+           with <img class="avatar" src="team/dwight.jpg" alt="Dwight Cecillano"> -->
+      <article class="member founder reveal">
+        <span class="avatar">DC</span>
+        <div>
+          <span class="mono role-tag">ceo &amp; founder</span>
+          <h3>Dwight Cecillano</h3>
+          <p>Dwight founded RevFlow to give business owners what he wanted for himself: a business that keeps running, and growing, whether he's at his desk, on the road or in another country.</p>
+          <a class="mono" href="#apply">work with dwight →</a>
+        </div>
+      </article>
+      <!-- TEAM MEMBER TEMPLATE: copy this block for each new member
+      <article class="member reveal">
+        <span class="avatar">AB</span>
+        <div><span class="mono role-tag">role title</span><h3>Full Name</h3><p>One line about what they do for clients.</p></div>
+      </article>
+      -->
+      <article class="member join reveal">
+        <span class="avatar">+</span>
+        <div><span class="mono role-tag">we're growing</span><h3>More team members coming soon</h3><p>Operations, talent and automation leads join here as RevFlow grows.</p></div>
+      </article>
     </div>
   </div>
 </section>
@@ -673,7 +955,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
   <div class="wrap">
     <div class="limebox reveal">
       <p class="mono">ready to scale?</p>
-      <h2>The best lead is the one <span class="s">someone actually calls.</span></h2>
+      <h2>The best business is one that <span class="s">runs while you're away.</span></h2>
       <a href="#apply" class="btn" data-cta="lime">Apply now <span class="arr">→</span></a>
     </div>
   </div>
@@ -687,9 +969,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
       <h2>Start with a free <span class="s">strategy call.</span></h2>
       <p class="sec-sub">Tell us about your business. We'll reply within one US business day with times for your 30-minute call.</p>
       <ul class="get">
-        <li><span>01</span>A game plan for your market and lead type</li>
+        <li><span>01</span>A game plan for your business and goals</li>
         <li><span>02</span>The right VA role for where you are now</li>
-        <li><span>03</span>A recommended ad budget and plan</li>
+        <li><span>03</span>Part-time or full-time: the right plan for you</li>
         <li><span>04</span>No obligation, and you keep the plan either way</li>
       </ul>
     </div>
@@ -700,26 +982,30 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
           <div class="f"><label for="fname">Full name *</label><input id="fname" name="name" autocomplete="name" required></div>
           <div class="f"><label for="femail">Email *</label><input id="femail" name="email" type="email" autocomplete="email" required></div>
           <div class="f"><label for="fphone">Phone *</label><input id="fphone" name="phone" type="tel" autocomplete="tel" required></div>
-          <div class="f"><label for="fcompany">Company / brokerage</label><input id="fcompany" name="company" autocomplete="organization"></div>
-          <div class="f"><label for="fservice">What best describes you? *</label>
+          <div class="f"><label for="fcompany">Company</label><input id="fcompany" name="company" autocomplete="organization"></div>
+          <div class="f"><label for="fservice">Your industry *</label>
             <select id="fservice" name="business_type" required>
               <option value="">Choose one</option>
-              <option>Wholesaler</option><option>Agent or team</option><option>Fix-and-flip investor</option>
-              <option>Property manager</option><option>Short-term rental host</option><option>Land or note investor</option><option>Other</option>
+              <option>E-commerce</option><option>Agency or consulting</option><option>Home services</option><option>Healthcare or clinic</option>
+              <option>Legal, accounting or finance</option><option>Coach or creator</option><option>SaaS or tech</option><option>Local business</option><option>Real estate</option><option>Other</option>
             </select></div>
           <div class="f"><label for="fplan">Plan you're interested in</label>
             <select id="fplan" name="plan">
               <option value="">Not sure yet</option>
-              <option>Growth System ($679/mo)</option>
-              <option>All-In System ($800/mo)</option>
+              <option>Part-time Growth ($679/mo)</option>
+              <option>Part-time All-In ($850/mo)</option>
+              <option>Full-time Growth ($1,199/mo)</option>
+              <option>Full-time All-In ($1,420/mo)</option>
+              <option>Autopilot, 2 full-time VAs ($2,699/mo)</option>
+              <option>Whole team: social media VA, cold caller, admin + manager (price on call)</option>
             </select></div>
-          <div class="f"><label for="fmarket">Your market (city / state)</label><input id="fmarket" name="market" placeholder="e.g. Phoenix, AZ"></div>
-          <div class="f"><label for="fbudget">Monthly ad budget</label>
-            <select id="fbudget" name="ad_budget">
+          <div class="f"><label for="fmarket">Where are you based?</label><input id="fmarket" name="location" placeholder="e.g. Phoenix, AZ"></div>
+          <div class="f"><label for="fbudget">When do you want to start?</label>
+            <select id="fbudget" name="start_timeline">
               <option value="">Choose one</option>
-              <option>Under $500</option><option>$500 – $1,500</option><option>$1,500 – $5,000</option><option>$5,000+</option><option>Not running ads yet</option>
+              <option>This week</option><option>Within a month</option><option>In 1–3 months</option><option>Just exploring</option>
             </select></div>
-          <div class="f full"><label for="fmsg">What should your VA take off your plate first?</label><textarea id="fmsg" name="message" placeholder="e.g. calling new seller leads the same day"></textarea></div>
+          <div class="f full"><label for="fmsg">What should your VA take off your plate first?</label><textarea id="fmsg" name="message" placeholder="e.g. answering customer emails and booking my calls"></textarea></div>
           <label class="chk"><input type="checkbox" id="fconsent" name="consent" required> <span>I agree to be contacted by RevFlow about my inquiry by email, phone or text. Reply STOP to opt out anytime.</span></label>
           <input class="hp" type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
         </div>
@@ -744,13 +1030,17 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
       <h2 style="margin-inline:auto">Questions, <span class="s">answered.</span></h2>
     </div>
     <div class="faq">
-      <div class="q"><button aria-expanded="false">What's the difference between the $679 and $800 plans? <i>+</i></button><div class="a"><p>Both include the full system and your own VA for 4 hours a day, 5 days a week. On Growth ($679) you pay for your own tools, like your CRM, dialer and phone line. On All-In ($800) we include those tools, so you get one bill.</p></div></div>
-      <div class="q"><button aria-expanded="false">Is ad spend included? <i>+</i></button><div class="a"><p>No. Ad spend is paid directly to Meta or Google from your own ad account, so you always own it. We help you set the right budget on your strategy call.</p></div></div>
-      <div class="q"><button aria-expanded="false">Do you only run ads, or the whole system? <i>+</i></button><div class="a"><p>The whole system: ads, landing page, CRM, AI follow-up and a VA who works the leads. That's the point. Leads only turn into deals when someone follows up fast.</p></div></div>
-      <div class="q"><button aria-expanded="false">Where is my VA based, and when do they work? <i>+</i></button><div class="a"><p>Our VAs are based in the Philippines and work a 4-hour shift during your local business hours, Monday to Friday. Need more hours or a full-time VA? We'll quote it on your call.</p></div></div>
-      <div class="q"><button aria-expanded="false">How fast can we go live? <i>+</i></button><div class="a"><p>Most systems launch within 7 to 14 days of your strategy call, and your VA starts as soon as the leads start coming in.</p></div></div>
+      <div class="q"><button aria-expanded="false">Can you set up a whole team for me? <i>+</i></button><div class="a"><p>Yes. Our whole-team option gives you a social media marketing VA, a cold caller, an admin VA and a manager who oversees all of them. Pricing depends on your business, so we go over it on a quick booking call.</p></div></div>
+      <div class="q"><button aria-expanded="false">What do I get with Autopilot? <i>+</i></button><div class="a"><p>Two managed full-time VAs (8 hours a day each), your whole system automated, landing pages and lead forms that save every lead to your CRM, all tools, and a monthly retainer where we monitor and maintain your systems and sites. You just check results and leads.</p></div></div>
+      <div class="q"><button aria-expanded="false">Do I have to manage the VA myself? <i>+</i></button><div class="a"><p>No. RevFlow hires, trains and manages your VA. Our team reviews their performance every week and handles coaching, so you just hand off the work and check the results.</p></div></div>
+      <div class="q"><button aria-expanded="false">How do I stay in the loop? <i>+</i></button><div class="a"><p>You get a daily end-of-day report from your VA, a weekly performance summary from us, and you can book a check-in call with your account manager every two weeks.</p></div></div>
+      <div class="q"><button aria-expanded="false">What if my VA isn't the right fit? <i>+</i></button><div class="a"><p>Tell us anytime, or on your check-in call, and we'll rematch you with a new VA.</p></div></div>
+      <div class="q"><button aria-expanded="false">Can my business really run while I'm away? <i>+</i></button><div class="a"><p>That's the point of RevFlow. Your VA works your business hours in your time zone, the AI follow-up answers leads around the clock, and you get a daily report wherever you are.</p></div></div>
+      <div class="q"><button aria-expanded="false">What's the difference between part-time and full-time? <i>+</i></button><div class="a"><p>Part-time is your own VA for 4 hours a day; full-time is 8 hours a day, both Monday to Friday. Full-time costs less per hour. You can switch between them as you grow.</p></div></div>
+      <div class="q"><button aria-expanded="false">What's the difference between Growth and All-In? <i>+</i></button><div class="a"><p>Both include the full system and your own VA. On Growth you pay for your own tools, like your CRM, dialer and phone line. All-In includes those tools plus a landing page and lead forms that send leads straight into your CRM, all on one bill.</p></div></div>
+      <div class="q"><button aria-expanded="false">Where is my VA based? <i>+</i></button><div class="a"><p>Our VAs are based in the Philippines, trained in US business communication, and work during your business hours, Monday to Friday.</p></div></div>
+      <div class="q"><button aria-expanded="false">How fast can we go live? <i>+</i></button><div class="a"><p>Within 24 to 72 hours of signing up you'll have your whole system set up and your VA ready to start.</p></div></div>
       <div class="q"><button aria-expanded="false">Is there a long contract? <i>+</i></button><div class="a"><p>No. Plans are month to month. You can cancel with notice.</p></div></div>
-      <div class="q"><button aria-expanded="false">Which platforms do you use? <i>+</i></button><div class="a"><p>Meta and Google for ads, and GoHighLevel for the CRM and automations. Already use Follow Up Boss, Podio or REsimpli? Your VA can work inside your current tools.</p></div></div>
     </div>
   </div>
 </section>
@@ -762,16 +1052,16 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
     <div class="foot">
       <div>
         <a href="#top" class="logo"><span class="logo-mark"><svg width="16" height="16" viewBox="0 0 32 32"><path d="M9 24V8h8a5 5 0 0 1 0 10h-4l7 6" fill="none" stroke="#07090a" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>RevFlow</a>
-        <p class="muted" style="margin-top:12px;max-width:300px;font-size:14px">Revenue, Operations, Technology. Lead systems and dedicated VAs for real estate.</p>
+        <p class="muted" style="margin-top:12px;max-width:300px;font-size:14px">Revenue, Operations, Technology. Your whole business, working for you.</p>
       </div>
       <div class="cols">
         <div><b>System</b><a href="#system">What you get</a><a href="#roles">VA roles</a><a href="#how">How it works</a></div>
-        <div><b>Company</b><a href="#pricing">Pricing</a><a href="#roi">Deal calculator</a><a href="#faq">FAQ</a></div>
+        <div><b>Company</b><a href="#team">Team</a><a href="#pricing">Pricing</a><a href="#roi">ROI calculator</a><a href="#faq">FAQ</a></div>
         <div><b>Contact</b><a href="#apply">Apply now</a><a href="#" id="footEmail">Email us</a></div>
       </div>
     </div>
     <div class="huge" aria-hidden="true">RevFlow</div>
-    <div class="copy mono"><span>© <span id="yr"></span> RevFlow. All rights reserved.</span><span>Made for teams that would rather be closing.</span></div>
+    <div class="copy mono"><span>© <span id="yr"></span> RevFlow. All rights reserved.</span><span>Made for owners who would rather be anywhere else.</span></div>
   </div>
 </footer>
 
@@ -789,8 +1079,8 @@ const CONFIG = {
   leadWebhook: "",
   // Optional: your booking page (GoHighLevel calendar, Calendly, etc.). Shown after submit.
   bookingUrl: "",
-  // Plan price used by the deal calculator.
-  planPrice: 800
+  // Plan price used by the deal calculator (switches with the pricing toggle).
+  planPrice: 1420
 };
 
 /* ---------- helpers ---------- */
@@ -801,79 +1091,96 @@ $('#footEmail').href = 'mailto:' + CONFIG.email;
 
 /* ---------- nav ---------- */
 const nav = $('#nav'), mcta = $('#mcta');
+const applyEl = $('#apply'); let ticking = false;
 addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', scrollY > 20);
-  const applyTop = $('#apply').getBoundingClientRect().top;
-  mcta.classList.toggle('show', scrollY > 600 && applyTop > innerHeight);
+  if (ticking) return; ticking = true;
+  requestAnimationFrame(() => {
+    nav.classList.toggle('scrolled', scrollY > 20);
+    mcta.classList.toggle('show', scrollY > 500 && applyEl.getBoundingClientRect().top > innerHeight);
+    ticking = false;
+  });
 }, {passive:true});
-$('#burger').onclick = () => $('#navLinks').classList.toggle('open');
+const burger = $('#burger'), links = $('#navLinks');
+burger.setAttribute('aria-expanded','false');
+burger.onclick = e => { e.stopPropagation(); const o = links.classList.toggle('open'); burger.setAttribute('aria-expanded', o); };
+document.addEventListener('click', e => { if (links.classList.contains('open') && !links.contains(e.target)){ links.classList.remove('open'); burger.setAttribute('aria-expanded','false'); } });
 $$('#navLinks a').forEach(a => a.onclick = () => $('#navLinks').classList.remove('open'));
 
-/* ---------- aurora canvas ---------- */
+/* ---------- aurora canvas (lightweight) ---------- */
+const lowPower = matchMedia('(max-width: 980px)').matches || (navigator.hardwareConcurrency || 8) <= 4;
 (function(){
   const c = $('#aurora'), ctx = c.getContext('2d');
-  let w, h, dpr, t = 0;
-  function size(){ dpr = Math.min(devicePixelRatio || 1, 2); w = c.clientWidth; h = c.clientHeight; c.width = w*dpr; c.height = h*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
-  size(); addEventListener('resize', size);
-  const strands = Array.from({length: 46}, (_, i) => ({
-    off: i / 46, amp: 40 + Math.random()*90, freq: .0016 + Math.random()*.0018,
+  let N = lowPower ? 12 : 26, scale = lowPower ? .5 : Math.min(devicePixelRatio || 1, 1.25), stepMs = lowPower ? 50 : 33, glow = true;
+  let w, h, t = 0, running = false, last = 0, cost = 0, samples = 0, tier = lowPower ? 1 : 0, scrolling = false, st;
+  const strands = Array.from({length: N}, (_, i) => ({
+    off: i / N, amp: 40 + Math.random()*90, freq: .0016 + Math.random()*.0018,
     speed: .25 + Math.random()*.5, phase: Math.random()*Math.PI*2,
-    hue: i < 18 ? [200,241,105] : i < 32 ? [47,211,181] : [59,130,246],
-    a: .10 + Math.random()*.22, wdt: .6 + Math.random()*2.2
+    rgb: i < N*.4 ? '200,241,105' : i < N*.7 ? '47,211,181' : '59,130,246',
+    a: .14 + Math.random()*.22, wdt: .8 + Math.random()*2
   }));
-  function draw(){
+  function size(){
+    w = c.clientWidth; h = c.clientHeight;
+    c.width = Math.round(w*scale); c.height = Math.round(h*scale);
+    ctx.setTransform(scale,0,0,scale,0,0); frame();
+  }
+  function path(fy){ const p = new Path2D(); for (let x = -100; x <= w + 100; x += (lowPower ? 28 : 22)){ const y = fy(x); x === -100 ? p.moveTo(x,y) : p.lineTo(x,y); } return p; }
+  function frame(){
     ctx.clearRect(0,0,w,h);
     ctx.globalCompositeOperation = 'lighter';
-    const cx = w*0.60, cy = h*0.58;
-    for (const s of strands){
-      ctx.beginPath();
-      for (let x = -200; x <= w + 200; x += 14){
-        const k = (x - cx) / w;
-        const swirl = Math.exp(-k*k*6);
-        const y = cy - (x - cx)*0.42
-          + Math.sin(x*s.freq + t*s.speed + s.phase)*s.amp*swirl
-          + Math.sin(x*s.freq*2.3 - t*s.speed*.7)*s.amp*.35
-          + (s.off - .5)*160*swirl;
-        x === -200 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
-      }
-      const [r,g,b] = s.hue;
-      ctx.strokeStyle = `rgba(${r},${g},${b},${s.a})`;
-      ctx.lineWidth = s.wdt;
-      ctx.shadowColor = `rgba(${r},${g},${b},.9)`; ctx.shadowBlur = 18;
-      ctx.stroke();
+    const cx = w*0.60, cy = h*(lowPower ? .5 : .58);
+    for (let i = 0; i < N; i++){ const s = strands[i];
+      const p = path(x => { const k = (x - cx)/w, sw = Math.exp(-k*k*6);
+        return cy - (x - cx)*0.42 + Math.sin(x*s.freq + t*s.speed + s.phase)*s.amp*sw + Math.sin(x*s.freq*2.3 - t*s.speed*.7)*s.amp*.35 + (s.off - .5)*160*sw; });
+      if (glow){ ctx.strokeStyle = `rgba(${s.rgb},${s.a*.22})`; ctx.lineWidth = s.wdt*7; ctx.stroke(p); }
+      ctx.strokeStyle = `rgba(${s.rgb},${s.a})`; ctx.lineWidth = s.wdt; ctx.stroke(p);
     }
-    for (let k=0;k<3;k++){
-      ctx.beginPath();
-      for (let x = -200; x <= w + 200; x += 12){
-        const kk = (x - cx) / w, sw = Math.exp(-kk*kk*6);
-        const y = cy - (x - cx)*0.42 + Math.sin(x*.0022 + t*.5 + k)*55*sw + (k-1)*10*sw;
-        x === -200 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
-      }
-      ctx.strokeStyle = k===1 ? 'rgba(235,255,200,.55)' : 'rgba(200,241,105,.28)';
-      ctx.lineWidth = k===1 ? 2.2 : 1.4;
-      ctx.shadowColor = 'rgba(200,241,105,1)'; ctx.shadowBlur = 30;
-      ctx.stroke();
+    for (let k = 0; k < 3; k++){
+      const p = path(x => { const kk = (x - cx)/w, sw = Math.exp(-kk*kk*6); return cy - (x - cx)*0.42 + Math.sin(x*.0022 + t*.5 + k)*55*sw + (k-1)*10*sw; });
+      ctx.strokeStyle = 'rgba(200,241,105,.10)'; ctx.lineWidth = 16; ctx.stroke(p);
+      ctx.strokeStyle = k === 1 ? 'rgba(235,255,200,.6)' : 'rgba(200,241,105,.3)'; ctx.lineWidth = k === 1 ? 2.2 : 1.4; ctx.stroke(p);
     }
-    ctx.shadowBlur = 0;
-    const glow = ctx.createRadialGradient(cx,cy,0,cx,cy,Math.max(w,h)*.45);
-    glow.addColorStop(0,'rgba(200,241,105,.16)'); glow.addColorStop(.35,'rgba(47,211,181,.07)'); glow.addColorStop(1,'rgba(0,0,0,0)');
-    ctx.fillStyle = glow; ctx.fillRect(0,0,w,h);
+    const g = ctx.createRadialGradient(cx,cy,0,cx,cy,Math.max(w,h)*.45);
+    g.addColorStop(0,'rgba(200,241,105,.16)'); g.addColorStop(.35,'rgba(47,211,181,.07)'); g.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle = g; ctx.fillRect(0,0,w,h);
     ctx.globalCompositeOperation = 'source-over';
-    t += .012;
-    if (!reduce) requestAnimationFrame(draw);
   }
-  draw();
+  // adaptive quality: if drawing is slow on this device, step down (fewer lines, lower res, lower fps)
+  function degrade(){
+    tier++;
+    if (tier === 1){ N = Math.min(N, 16); stepMs = 40; }
+    else if (tier === 2){ N = Math.min(N, 10); glow = false; scale = .5; stepMs = 50; size(); }
+    else { stepMs = 66; }
+    cost = 0; samples = 0;
+  }
+  function loop(ts){
+    if (!running) return;
+    if (!scrolling && ts - last > stepMs){
+      t += (ts - last > 200 ? stepMs : ts - last) * .0009; last = ts;
+      const t0 = performance.now(); frame(); cost += performance.now() - t0;
+      if (++samples === 24){ if (cost / samples > 5 && tier < 3) degrade(); else { cost = 0; samples = 0; } }
+    }
+    requestAnimationFrame(loop);
+  }
+  // pause redraws while the page is scrolling so scrolling stays buttery
+  addEventListener('scroll', () => { scrolling = true; clearTimeout(st); st = setTimeout(() => { scrolling = false; }, 140); }, {passive:true});
+  function setRun(on){ if (reduce) return; if (on && !running){ running = true; requestAnimationFrame(loop); } else if (!on) running = false; }
+  size();
+  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(size, 150); });
+  new IntersectionObserver(([e]) => setRun(e.isIntersecting && !document.hidden)).observe(c);
+  document.addEventListener('visibilitychange', () => setRun(!document.hidden && c.getBoundingClientRect().bottom > 0));
 })();
 
 /* ---------- workflow log (demo activity) ---------- */
 (function(){
   const log = $('#log');
   const events = [
-    ['lead.new','seller, Phoenix AZ / Meta ad'],['ai.text','replied in 41 s'],['va.call','connected, 6 min'],
-    ['appt.set','Thu 2:00 PM MST'],['lead.new','buyer, Tampa FL / Google ad'],['ai.text','replied in 38 s'],
-    ['followup','day 3 text sent'],['va.call','voicemail, retry 4 PM'],['eod.report','42 calls, 3 appts'],
-    ['lead.reactivated','old lead replied YES'],['appt.set','Mon 10:30 AM EST'],['pipeline','moved to Offer Made']
+    ['order.new','Shopify #1042'],['ai.reply','sent in 38 s'],['va.task','refund processed'],
+    ['lead.new','web form, Phoenix AZ'],['appt.set','Thu 2:00 PM'],['ticket.closed','password reset'],
+    ['inbox','48 emails cleared'],['invoice.sent','paid via ACH'],['qa.review','score 96 / 100'],
+    ['post.scheduled','3 platforms'],['call.answered','routed to sales'],['eod.report','14 tasks done']
   ];
+  const niches = ['e-commerce','clinics','agencies','home services','law firms','coaches','startups','local shops'];
+  let ni = 0; const fn = $('#forNiche');
   let i = 0;
   function add(){
     const ts = new Date().toTimeString().slice(0,8);
@@ -881,10 +1188,12 @@ $$('#navLinks a').forEach(a => a.onclick = () => $('#navLinks').classList.remove
     const row = document.createElement('div'); row.className = 'log-row';
     row.innerHTML = `<span class="t">${ts}</span><span>${e} <span style="color:#6f7873">/ ${m}</span></span><span class="ok">✓</span>`;
     log.prepend(row);
+    if (fn && i % 2 === 0){ ni = (ni + 1) % niches.length; fn.textContent = niches.at(ni).replace(/ /g,'-'); }
     while (log.children.length > 6) log.lastChild.remove();
   }
   for (let k=0;k<4;k++) add();
-  if (!reduce) setInterval(add, 2200);
+  let iv = null;
+  if (!reduce) new IntersectionObserver(([e]) => { if (e.isIntersecting && !iv && getComputedStyle(log).display !== 'none') iv = setInterval(add, 2200); else if (!e.isIntersecting && iv){ clearInterval(iv); iv = null; } }).observe(log);
 })();
 
 /* ---------- marquee duplicate ---------- */
@@ -895,7 +1204,7 @@ const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting
 $$('.reveal').forEach((el,i) => { el.style.transitionDelay = (i%3)*80 + 'ms'; io.observe(el); });
 
 /* ---------- card spotlight ---------- */
-$$('.card').forEach(c => c.addEventListener('pointermove', e => {
+if (matchMedia('(hover: hover)').matches) $$('.card').forEach(c => c.addEventListener('pointermove', e => {
   const r = c.getBoundingClientRect();
   c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px');
 }));
@@ -908,14 +1217,25 @@ $$('.card').forEach(c => c.addEventListener('pointermove', e => {
     cur = i;
     steps.forEach((s,k) => { s.classList.toggle('active', k===i); const b = s.querySelector('.bar i'); b.style.animation='none'; b.offsetWidth; b.style.animation=''; });
     panels.forEach((p,k) => p.classList.toggle('active', k===i));
-    clearTimeout(timer); if (!reduce) timer = setTimeout(() => go((cur+1) % steps.length), 5000);
+    clearTimeout(timer); if (!lowPower) timer = setTimeout(() => go((cur+1) % steps.length), 5000);
   }
   steps.forEach((s,i) => s.onclick = () => go(i));
   go(0);
 })();
 
-/* ---------- plan buttons pre-select the form ---------- */
-$$('[data-plan]').forEach(b => b.addEventListener('click', () => { $('#fplan').value = b.dataset.plan; }));
+/* ---------- pricing toggle (part-time / full-time) ---------- */
+let hours = 'ft';
+function setHours(hv){
+  hours = hv;
+  $$('.toggle button').forEach(b => b.setAttribute('aria-selected', b.dataset.hours === hv));
+  $$('#pricing [data-pt]').forEach(el => el.textContent = el.dataset[hv]);
+  CONFIG.planPrice = hv === 'pt' ? 850 : 1420;
+  const rp = $('#roiPlan'); if (rp) rp.textContent = hv === 'pt' ? '$850' : '$1,420';
+  if (window.recalc) recalc();
+}
+$$('.toggle button').forEach(b => b.addEventListener('click', () => setHours(b.dataset.hours)));
+$$('[data-plan-fixed]').forEach(b => b.addEventListener('click', () => { $('#fplan').value = b.dataset.planFixed; }));
+$$('[data-plan-pt]').forEach(b => b.addEventListener('click', () => { $('#fplan').value = b.dataset['plan' + (hours === 'pt' ? 'Pt' : 'Ft')]; }));
 
 /* ---------- deal calculator ---------- */
 (function(){
@@ -938,7 +1258,7 @@ $$('[data-plan]').forEach(b => b.addEventListener('click', () => { $('#fplan').v
     animate('#sRoi', rev / CONFIG.planPrice, n => n.toFixed(1) + '×');
   }
   [leads,conv,fee].forEach(r => r.addEventListener('input', calc));
-  calc();
+  window.recalc = calc; calc();
 })();
 
 /* ---------- lead capture ---------- */
@@ -992,6 +1312,83 @@ $$('[data-plan]').forEach(b => b.addEventListener('click', () => { $('#fplan').v
       btn.disabled = false; btn.innerHTML = 'Apply for my strategy call <span class="arr">→</span>';
     }
   });
+})();
+
+/* ---------- workflow explorer data ---------- */
+const WF = {
+  industry: [
+    {id:'ecom', name:'E-commerce', slug:'order-to-5-star-review', steps:[['New order','Shopify, Amazon'],['AI confirms','tracking in 60 s'],['VA checks stock','supplier pinged'],['Issue? VA fixes','refund or swap'],['Review request','day 7 email'],['5-star review','logged in EOD']], does:['Answers customer emails and chats','Handles returns, refunds and order issues','Updates listings and stock levels'], tools:['Shopify','Gorgias','Klaviyo','Google Sheets']},
+    {id:'agency', name:'Agencies', slug:'client-request-to-report', steps:[['Client request','Slack, email'],['AI logs task','ClickUp ticket'],['VA executes','same business day'],['QA check','RevFlow review'],['Client update','sent by VA'],['Monthly report','built for you']], does:['Turns client requests into tracked tasks','Builds reports and decks','Keeps your own lead pipeline moving'], tools:['ClickUp','Slack','Google Slides','HubSpot']},
+    {id:'home', name:'Home services', slug:'missed-call-to-booked-job', steps:[['Missed call','after hours'],['AI texts back','in 60 seconds'],['VA qualifies','job, address, photos'],['Quote sent','from your price list'],['Job booked','tech dispatched'],['Review request','after the job']], does:['Calls back every missed lead','Sends quotes and books jobs','Confirms appointments and chases reviews'], tools:['Jobber','Housecall Pro','GoHighLevel','Google Calendar']},
+    {id:'health', name:'Healthcare and clinics', slug:'inquiry-to-kept-appointment', steps:[['New inquiry','web, phone'],['AI replies','hours, services'],['VA books visit','right provider'],['Intake forms','sent and checked'],['Reminders','48 h and 2 h'],['Visit kept','no-show recovered']], does:['Books and reschedules appointments','Sends and checks intake forms','Calls no-shows to rebook'], tools:['Your EHR or booking app','Google Workspace','RingCentral'] },
+    {id:'legal', name:'Legal and accounting', slug:'inquiry-to-signed-engagement', steps:[['New inquiry','web form, call'],['AI screens','case or service type'],['VA runs intake','conflict check prep'],['Consult booked','on your calendar'],['Docs collected','secure portal'],['Engagement signed','e-signature']], does:['Runs client intake and document collection','Schedules consults and deadlines','Prepares invoices and follow-ups'], tools:['Clio','QuickBooks','DocuSign','Google Drive']},
+    {id:'coach', name:'Coaches and creators', slug:'dm-to-enrolled-client', steps:[['New DM or comment','Instagram, YouTube'],['AI replies','free resource link'],['VA nurtures','email + DMs'],['Call booked','sales calendar'],['Client enrolled','payment confirmed'],['Onboarded','community access']], does:['Manages your inbox, DMs and community','Schedules content across platforms','Books sales calls and onboards clients'], tools:['Kajabi','ManyChat','Calendly','Canva']},
+    {id:'saas', name:'SaaS and tech', slug:'signup-to-activated-user', steps:[['New signup','trial started'],['AI welcome','in-app + email'],['VA checks usage','day 2 and day 5'],['Stuck? VA helps','live chat'],['Bugs logged','to your dev team'],['Activated user','upgrade nudge']], does:['Answers support tickets and live chat','Onboards new users','Reproduces and logs bugs for your devs'], tools:['Intercom','Zendesk','Jira','HubSpot']},
+    {id:'local', name:'Local businesses', slug:'message-to-loyal-customer', steps:[['New message','DM, call, Google'],['AI replies','hours, prices'],['VA books it','your calendar'],['Reminder sent','day before'],['Visit happens','no-show recovered'],['Review request','Google, Yelp']], does:['Answers messages, calls and DMs','Books and confirms appointments','Asks happy customers for reviews'], tools:['Square','Google Business Profile','Meta Business Suite','Calendly']}
+  ],
+  va: [
+    {id:'ea', name:'Executive assistant', slug:'inbox-to-inbox-zero', steps:[['Inbox overflow','200+ emails'],['AI sorts','urgent, FYI, spam'],['VA replies','your templates'],['Calendar set','meetings booked'],['Travel booked','flights, hotels'],['Daily brief','what needs you']], does:['Clears and manages your inbox','Books meetings, travel and reminders','Sends you a short daily brief'], tools:['Gmail or Outlook','Google Calendar','Notion','Slack']},
+    {id:'support', name:'Customer support', slug:'ticket-to-happy-customer', steps:[['New ticket','email, chat'],['AI tags it','topic, priority'],['VA answers','in your voice'],['Escalate?','only if needed'],['Ticket solved','under target time'],['CSAT survey','tracked weekly']], does:['Answers email, chat and tickets','Processes refunds and changes','Writes macros for repeat questions'], tools:['Zendesk','Gorgias','Intercom','Help Scout']},
+    {id:'setter', name:'Appointment setter', slug:'lead-to-booked-call', steps:[['New lead','form, call, list'],['AI first touch','text in 60 s'],['VA calls','up to 5 attempts'],['Qualified','fits your criteria'],['Call booked','your calendar'],['Reminder','show-up confirmed']], does:['Calls and texts new leads fast','Qualifies against your criteria','Confirms so people actually show up'], tools:['GoHighLevel','Calendly','Aircall','HubSpot']},
+    {id:'leadgen', name:'Lead generation', slug:'ideal-customer-to-reply', steps:[['Ideal customer','your criteria'],['VA builds list','verified contacts'],['Data enriched','email, phone'],['Outreach sent','email, LinkedIn'],['Reply handled','by your VA'],['Warm lead','into your CRM']], does:['Researches and builds targeted lists','Verifies emails and phone numbers','Runs and replies to outreach'], tools:['Apollo','LinkedIn Sales Navigator','Instantly','Google Sheets']},
+    {id:'sales', name:'Sales follow-up', slug:'cold-lead-to-closed-sale', steps:[['Quiet lead','no reply 30 days'],['AI re-engages','new offer text'],['VA calls','fresh angle'],['Objection?','handled by script'],['Proposal sent','your template'],['Closed sale','logged in CRM']], does:['Works old and quiet leads','Sends proposals and chases signatures','Keeps every deal stage updated'], tools:['HubSpot','Pipedrive','GoHighLevel','PandaDoc']},
+    {id:'social', name:'Social media VA', slug:'idea-to-engaged-audience', steps:[['Content idea','your notes, video'],['VA drafts','captions, graphics'],['You approve','one click'],['Scheduled','all platforms'],['Comments, DMs','answered daily'],['Weekly stats','what worked']], does:['Plans and schedules your posts','Answers comments and DMs','Reports what content is working'], tools:['Canva','Meta Business Suite','Later','CapCut']},
+    {id:'books', name:'Bookkeeping VA', slug:'receipt-to-clean-books', steps:[['Receipts in','email, photos'],['AI reads them','amount, vendor'],['VA categorizes','in QuickBooks'],['Invoices sent','and chased'],['Bank reconciled','every week'],['Monthly P&L','ready for you']], does:['Categorizes expenses and receipts','Sends invoices and chases payments','Reconciles accounts weekly'], tools:['QuickBooks','Xero','Dext','Stripe']},
+    {id:'ecomva', name:'E-commerce VA', slug:'new-product-to-live-listing', steps:[['New product','from supplier'],['VA writes listing','photos, SEO title'],['Pricing set','vs competitors'],['Live listing','all channels'],['Stock watched','reorder alerts'],['Returns handled','customer updated']], does:['Creates and updates product listings','Watches stock and reorders','Handles returns and supplier emails'], tools:['Shopify','Amazon Seller Central','Etsy','Google Sheets']},
+    {id:'data', name:'Data entry and research', slug:'messy-data-to-clean-sheet', steps:[['Messy data','PDFs, forms, lists'],['AI extracts','first pass'],['VA checks','line by line'],['Cleaned up','duplicates removed'],['Into your system','CRM or sheet'],['Summary sent','what changed']], does:['Enters and cleans data accurately','Researches companies, people or prices','Keeps your CRM and sheets current'], tools:['Google Sheets','Excel','Airtable','Your CRM']},
+    {id:'recep', name:'Receptionist', slug:'ringing-phone-to-handled-call', steps:[['Phone rings','your business line'],['VA answers','your greeting'],['Need sorted','book, info, urgent'],['Booked or routed','right person'],['Notes logged','in your CRM'],['Missed? Callback','within the hour']], does:['Answers and routes calls','Books appointments and takes messages','Calls back anyone who was missed'], tools:['RingCentral','OpenPhone','Google Calendar','Your CRM']}
+  ],
+  tech: [
+    {id:'auto', name:'Automation engineer', slug:'manual-task-to-automation', steps:[['Repeated task','found in audit'],['Workflow mapped','step by step'],['Automation built','n8n, Zapier, Make'],['Tested','with real data'],['Live','errors alert us'],['Hours saved','tracked monthly']], does:['Finds tasks a machine should do','Builds and maintains automations','Monitors them so nothing silently breaks'], tools:['n8n','Zapier','Make','Google Apps Script']},
+    {id:'web', name:'Web developer', slug:'idea-to-live-website', steps:[['Your brief','goals, examples'],['Design drafted','for your review'],['Site built','fast, mobile-first'],['Forms connected','leads to your CRM'],['Launched','your domain'],['Updates','as you need them']], does:['Builds websites and landing pages','Connects forms, analytics and CRM','Handles updates and speed fixes'], tools:['WordPress','Webflow','Next.js','GoHighLevel funnels']},
+    {id:'crm', name:'CRM admin', slug:'scattered-leads-to-one-pipeline', steps:[['Leads everywhere','sheets, inboxes'],['Imported','cleaned, de-duplicated'],['Pipeline built','your sales stages'],['Automations','follow-up sequences'],['Dashboards','live numbers'],['Kept clean','weekly hygiene']], does:['Sets up and cleans your CRM','Builds pipelines and follow-up sequences','Keeps data and dashboards accurate'], tools:['GoHighLevel','HubSpot','Salesforce','Pipedrive']},
+    {id:'ai', name:'AI agent builder', slug:'question-to-answered-24-7', steps:[['Customer asks','site, SMS, phone'],['AI agent replies','trained on your info'],['Books or answers','24/7'],['Hard question?','hands off to VA'],['Transcript saved','in your CRM'],['Improved weekly','from real chats']], does:['Builds AI chat and voice agents','Trains them on your FAQs and offers','Reviews transcripts and improves them'], tools:['GoHighLevel AI','Retell','Voiceflow','OpenAI / Claude']},
+    {id:'it', name:'IT helpdesk', slug:'tech-issue-to-fixed', steps:[['Issue reported','Slack, email'],['Ticket logged','priority set'],['VA troubleshoots','remote session'],['Fixed','or escalated'],['Accounts secured','access reviewed'],['Monthly IT report','devices, licenses']], does:['Sets up accounts, devices and email','Fixes everyday tech problems','Manages logins, licenses and offboarding'], tools:['Google Workspace','Microsoft 365','1Password','AnyDesk']},
+    {id:'qa', name:'QA and reporting analyst', slug:'raw-numbers-to-decisions', steps:[['Data sources','CRM, sales, support'],['Pulled daily','automatically'],['Checked','errors flagged'],['Dashboard','one live view'],['Weekly insights','what changed'],['Your decision','with real numbers']], does:['Connects your data into one dashboard','Checks numbers for errors','Writes a short weekly insights note'], tools:['Looker Studio','Google Sheets','QuickBooks','GA4']}
+  ]
+};
+const WF_TABS = {industry:'By industry', va:'By VA role', tech:'By tech role'};
+
+(function(){
+  const root = $('#wfExplorer'); if (!root) return;
+  const tabsEl = $('#wfTabs'), chipsEl = $('#wfChips'), out = $('#wfOut');
+  let cat = 'industry', cur = WF.industry[0];
+  const esc = t => String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  function svg(w){
+    const X = [20,230,440], Y = [26,166], W = 180, H = 58;
+    const pos = [[0,0],[1,0],[2,0],[2,1],[1,1],[0,1]];
+    const node = (s,i) => { const [cx,ry] = pos[i], x = X[cx], y = Y[ry], last = i === 5;
+      return `<g class="node on${last ? ' done' : ''}"><rect x="${x}" y="${y}" width="${W}" height="${H}" rx="10"/><text x="${x+14}" y="${y+25}">${esc(s[0])}</text><text class="sub" x="${x+14}" y="${y+43}">${esc(s[1])}</text></g>`; };
+    const d = 'M200 55 H230 M410 55 H440 M530 84 V166 M440 195 H410 M230 195 H200';
+    return `<svg viewBox="0 0 640 250" role="img" aria-label="${esc(w.name)} workflow">
+      <path class="edge" d="${d}"/><path class="edge-live" d="${d}"/>
+      ${w.steps.map(node).join('')}
+      <circle r="4" fill="#c8f169"><animateMotion dur="4.5s" repeatCount="indefinite" path="M200 55 H230 M410 55 H440 M530 84 V166 M440 195 H410 M230 195 H200"/></circle>
+    </svg>`;
+  }
+  function list(w){ return `<ol class="wf-list">${w.steps.map((s,i) => `<li class="${i===5?'done':''}"><span class="wn mono">${String(i+1).padStart(2,'0')}</span><div><b>${esc(s[0])}</b><span>${esc(s[1])}</span></div></li>`).join('')}</ol>`; }
+  function render(){
+    tabsEl.querySelectorAll('button').forEach(b => b.setAttribute('aria-selected', b.dataset.cat === cat));
+    chipsEl.innerHTML = WF[cat].map(w => `<button class="chip${w === cur ? ' on' : ''}" data-id="${w.id}">${esc(w.name)}</button>`).join('');
+    out.innerHTML = `
+      <div class="flow-head mono"><span>workflow / ${esc(cur.slug)}</span><span class="live"><span class="dot"></span>running</span></div>
+      <div class="wf-svg">${svg(cur)}</div>${list(cur)}
+      <div class="wf-meta">
+        <div><p class="mono wf-k">what your ${cat === 'tech' ? 'tech specialist' : 'VA'} does</p><ul>${cur.does.map(d => `<li>${esc(d)}</li>`).join('')}</ul></div>
+        <div><p class="mono wf-k">tools we work in</p><div class="wf-tools">${cur.tools.map(t => `<span>${esc(t)}</span>`).join('')}</div><p class="note" style="margin-top:12px">Every workflow is reviewed weekly by RevFlow.</p></div>
+        <div class="wf-cta"><a href="#apply" class="btn btn-lime" id="wfGet" data-cta="workflow">Get this workflow <span class="arr">→</span></a></div>
+      </div>`;
+    const on = chipsEl.querySelector('.on'); if (on) chipsEl.scrollTo({left: on.offsetLeft - 20, behavior: 'smooth'});
+    $('#wfGet').onclick = () => { const m = $('#fmsg'); if (m && !m.value) m.value = `I'd like the "${cur.name}" workflow.`; };
+  }
+  tabsEl.innerHTML = Object.entries(WF_TABS).map(([k,v]) => `<button role="tab" data-cat="${k}">${v}</button>`).join('');
+  tabsEl.onclick = e => { const b = e.target.closest('button'); if (!b) return; cat = b.dataset.cat; cur = WF[cat][0]; render(); };
+  chipsEl.onclick = e => { const b = e.target.closest('.chip'); if (!b) return; cur = WF[cat].find(w => w.id === b.dataset.id); render(); };
+  window.openWorkflow = (c, id) => { cat = c; cur = WF[c].find(w => w.id === id) || WF[c][0]; render(); root.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'start'}); };
+  $$('[data-wf]').forEach(el => { el.setAttribute('role','button'); el.tabIndex = 0;
+    const go = () => { const [c,id] = el.dataset.wf.split(':'); openWorkflow(c,id); };
+    el.addEventListener('click', go); el.addEventListener('keydown', e => { if (e.key === 'Enter') go(); }); });
+  render();
 })();
 
 /* ---------- FAQ ---------- */
