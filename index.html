@@ -481,6 +481,23 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
 .nav-links .client-login:hover,.nav-links .client-login:focus-visible{color:var(--text)}
 @media (min-width:981px){.nav-links{gap:clamp(12px,2vw,24px)}.nav .status{display:none}}
 @media (max-width:980px){.nav-links.open .client-login{color:var(--lime)}}
+/* Founder introduction & client feedback */
+.hero-media{display:grid;gap:18px;min-width:0}
+.founder-intro{padding:20px;overflow:hidden}
+.founder-intro .mono{color:var(--lime)}
+.founder-intro h2{font-size:clamp(23px,2.5vw,32px);line-height:1.12;letter-spacing:-.04em;margin:10px 0}
+.founder-intro p{font-size:14px;color:var(--muted);margin:10px 0}
+.founder-frame{aspect-ratio:16/9;display:grid;place-items:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 35% 35%,rgba(200,241,105,.13),transparent 55%),var(--bg2);border:1px solid var(--line2);border-radius:14px;text-align:center;padding:16px}
+.founder-frame .founder-initials{display:grid;place-items:center;width:58px;height:58px;margin:0 auto 12px;border-radius:50%;background:var(--lime);color:var(--bg);font-weight:700;font-size:21px}
+.founder-frame small{display:block;color:var(--muted);margin-top:5px}
+.founder-frame video{width:100%;height:100%;object-fit:contain}
+.founder-intro .founder-link{display:inline-flex;color:var(--lime);font-size:13px;margin-top:4px}
+.testimonial-empty{padding:clamp(22px,4vw,38px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;margin-top:26px}
+.testimonial-empty h3{font-size:22px;margin:0 0 8px;letter-spacing:-.03em}
+.testimonial-empty p{max-width:620px;color:var(--muted);margin:0}
+#testimonials{scroll-margin-top:85px}
+@media(min-width:981px){.nav-links{gap:clamp(9px,1.3vw,17px);font-size:13px}}
+@media(max-width:980px){.hero-media{gap:14px}.founder-intro{padding:16px}}
 </style>
 </head>
 <body>
@@ -498,6 +515,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
       <a href="#managed">Managed</a>
       <a href="#pricing">Pricing</a>
       <a href="#team">Team</a>
+      <a href="#testimonials">Testimonials</a>
       <a href="#faq">FAQ</a>
       <a href="login/" class="client-login">Client Login ↗</a>
       <a href="#apply" class="btn btn-lime menu-cta" data-cta="menu">Apply now →</a>
@@ -527,6 +545,17 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
       <p class="micro mono"><span>live in 24–72 h</span> / <span>we manage your VA</span> / <span>from $679/mo</span></p>
     </div>
 
+    <div class="hero-media">
+      <article class="glass founder-intro" id="founder-video" aria-labelledby="founder-video-title">
+        <span class="mono">FROM THE FOUNDER / INTRODUCTION</span>
+        <h2 id="founder-video-title">Meet the person behind <span class="s">RevFlow.</span></h2>
+        <!-- When the real recording is ready, replace this placeholder with a video element with controls, preload="none", and a captions track, or an approved hosted video embed. -->
+        <div class="founder-frame">
+          <div><span class="founder-initials" aria-hidden="true">DC</span><strong>Dwight Cecillano</strong><small>Founder introduction video coming soon</small></div>
+        </div>
+        <p>Why we bring together people, processes and technology to help business owners get time back.</p>
+        <a class="founder-link mono" href="#team">Meet our founder →</a>
+      </article>
     <div class="glass flow" aria-label="Example lead workflow">
       <div class="flow-head mono">
         <span>workflow / done-for-<span id="forNiche">e-commerce</span></span>
@@ -552,6 +581,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
         <text x="272" y="36" font-family="JetBrains Mono" font-size="9" fill="#7f8a84">routine</text>
       </svg>
       <div class="log mono" id="log"></div>
+    </div>
     </div>
   </div>
 </section>
@@ -953,6 +983,15 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
         <div><span class="mono role-tag">we're growing</span><h3>More team members coming soon</h3><p>Operations, talent and automation leads join here as RevFlow grows.</p></div>
       </article>
     </div>
+  </div>
+</section>
+
+<!-- ============ CLIENT TESTIMONIALS ============ -->
+<section class="sec" id="testimonials" style="padding-top:20px">
+  <div class="wrap">
+    <div class="reveal"><p class="eyebrow mono">client stories</p><h2>Real businesses. <span class="s">Real experiences.</span></h2><p class="sec-sub">Hear from the businesses we support as RevFlow grows.</p></div>
+    <div class="glass testimonial-empty reveal"><div><h3>Client stories coming soon</h3><p>We are preparing this space for genuine, permission-based client testimonials and case studies. In the meantime, talk with us about your business goals and what support could look like for you.</p></div><a class="btn btn-lime" href="#apply">Book a strategy call →</a></div>
+    <!-- Add approved client quotes and attribution here after receiving permission. Do not publish invented reviews or ratings. -->
   </div>
 </section>
 
