@@ -1119,7 +1119,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
       <div class="cols">
         <div><b>System</b><a href="#system">What you get</a><a href="#roles">VA roles</a><a href="#how">How it works</a></div>
         <div><b>Company</b><a href="#team">Team</a><a href="#pricing">Pricing</a><a href="#roi">ROI calculator</a><a href="#faq">FAQ</a></div>
-        <div><b>Contact</b><a href="#apply">Apply now</a><a href="#" id="footEmail">Email us</a></div>
+        <div><b>Contact</b><a href="#apply">Apply now</a><a href="#apply">Contact us</a></div>
       </div>
     </div>
     <div class="huge" aria-hidden="true">RevFlow</div>
@@ -1149,7 +1149,7 @@ const CONFIG = {
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 $('#yr').textContent = new Date().getFullYear();
-$('#footEmail').href = 'mailto:' + CONFIG.email;
+// Contact link routes visitors to the application form.
 
 /* ---------- nav ---------- */
 const nav = $('#nav'), mcta = $('#mcta');
@@ -1370,7 +1370,7 @@ $$('[data-plan-pt]').forEach(b => b.addEventListener('click', () => { $('#fplan'
       const book = $('#bookNow');
       if (CONFIG.bookingUrl) book.href = CONFIG.bookingUrl; else book.style.display = 'none';
     } catch(err){
-      msg.className = 'form-msg err'; msg.textContent = 'Something went wrong. Please email ' + CONFIG.email;
+      msg.className = 'form-msg err'; msg.textContent = 'We couldn’t send your application. Your details are still here. Please try again in a moment.';
       btn.disabled = false; btn.innerHTML = 'Apply for my strategy call <span class="arr">→</span>';
     }
   });
