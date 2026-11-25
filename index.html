@@ -507,6 +507,19 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
 .hero-path-links a span{font-family:var(--mono);font-size:11px;color:var(--lime)}
 .hero-path-links a b{font-weight:400;margin-left:auto;color:var(--lime)}
 @media(max-width:980px){.hero-path{margin-top:22px}.hero-path-links a{font-size:14px}}
+/* Confirmed application: lightweight, one-time celebration */
+.rf-celebration{position:relative;overflow:hidden;outline:none}
+.rf-celebration:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
+.rf-celebration .big{position:relative;z-index:1}
+.rf-confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.rf-confetti i{position:absolute;top:72px;left:50%;width:7px;height:10px;border-radius:2px;opacity:0;animation:rf-celebrate 1.2s var(--delay) cubic-bezier(.15,.65,.25,1) both}
+@keyframes rf-celebrate{0%{opacity:0;transform:translate(0,0) rotate(0)}12%{opacity:1}65%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(var(--spin))}}
+.rf-next{text-align:left;margin:24px auto;padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--card);max-width:420px}
+.rf-next .mono{color:var(--lime);font-size:11px;letter-spacing:.06em}
+.rf-next ol{padding-left:22px;margin-top:10px;display:grid;gap:7px;color:var(--text);font-size:14px}
+.rf-success-links{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:12px}
+.rf-success-links .btn{font-size:13px}
+@media(prefers-reduced-motion:reduce){.rf-confetti{display:none}}
 </style>
 </head>
 <body>
@@ -1074,11 +1087,13 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
         <button type="submit" class="btn btn-lime" id="submitBtn">Apply for my strategy call <span class="arr">→</span></button>
         <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
       </form>
-      <div class="success" id="success">
+      <div class="success rf-celebration" id="success" role="region" aria-labelledby="successTitle" tabindex="-1"><div id="rfConfetti" class="rf-confetti" aria-hidden="true"></div>
         <div class="big"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg></div>
-        <h3>You're in. <span class="s">Talk soon.</span></h3>
-        <p>Your application has been submitted. We'll reach out within one US business day.</p>
+        <h3 id="successTitle">You’re in! <span class="s">Talk soon.</span></h3>
+        <p>Your application has been submitted. We’ll reach out within one US business day to discuss your goals and arrange a free strategy call.</p>
+        <div class="rf-next"><span class="mono">WHAT HAPPENS NEXT</span><ol><li>We review your application.</li><li>We discuss your business and priorities.</li><li>We recommend the right support, with no obligation.</li></ol></div>
         <a href="#" class="btn btn-lime" id="bookNow" target="_blank" rel="noopener">Pick a time now <span class="arr">→</span></a>
+        <div class="rf-success-links"><a class="btn btn-ghost" href="#workflows">Explore our workflows ↗</a><a class="btn btn-ghost" href="#team">Meet the team ↗</a></div>
       </div>
     </div>
   </div>
@@ -1379,7 +1394,28 @@ $$('[data-plan-pt]').forEach(b => b.addEventListener('click', () => { $('#fplan'
     // Confirmed delivery must never be changed to failure by optional integrations.
     msg.textContent = '';
     form.style.display = 'none';
-    $('#success').style.display = 'block';
+    const confirmation = $('#success');
+    confirmation.style.display = 'block';
+    confirmation.focus({preventScroll:true});
+    confirmation.scrollIntoView({behavior:reduce ? 'instant' : 'smooth',block:'center'});
+    if (!reduce) {
+      try {
+        const confetti = $('#rfConfetti');
+        const colors = ['#c8f169','#eef2ee','#2fd3b5','#b3e04f'];
+        for (let i=0;i<28;i++) {
+          const piece=document.createElement('i');
+          const angle=i*2.399963;
+          const distance=55+(i%7)*19;
+          piece.style.setProperty('--dx',Math.round(Math.cos(angle)*distance)+'px');
+          piece.style.setProperty('--dy',Math.round(Math.sin(angle)*distance+45)+'px');
+          piece.style.setProperty('--spin',(i%2?1:-1)*(180+i*18)+'deg');
+          piece.style.setProperty('--delay',(i%5)*35+'ms');
+          piece.style.background=colors[i%colors.length];
+          confetti.appendChild(piece);
+        }
+        setTimeout(()=>confetti.replaceChildren(),1650);
+      } catch (_) { /* Celebration is optional; delivery remains confirmed. */ }
+    }
     const book = $('#bookNow');
     if (CONFIG.bookingUrl) book.href = CONFIG.bookingUrl; else book.style.display = 'none';
     try {
