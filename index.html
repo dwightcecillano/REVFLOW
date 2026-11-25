@@ -1039,7 +1039,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
     </div>
 
     <div class="glass form reveal">
-      <form id="leadForm" novalidate>
+      <form id="leadForm" method="post" novalidate>
         <div class="fgrid">
           <div class="f"><label for="fname">Full name *</label><input id="fname" name="name" autocomplete="name" required></div>
           <div class="f"><label for="femail">Email *</label><input id="femail" name="email" type="email" autocomplete="email" required></div>
@@ -1335,9 +1335,10 @@ $$('[data-plan-pt]').forEach(b => b.addEventListener('click', () => { $('#fplan'
 
   form.addEventListener('submit', async e => {
     e.preventDefault(); msg.className = 'form-msg'; msg.textContent = '';
-    if (form.company_website.value) return; // spam bot
+    if (btn.disabled || form.elements.namedItem('company_website').value) return; // duplicate or spam bot
     for (const k of ['name','email','phone','business_type']){
-      if (!form[k].value.trim()){ msg.className='form-msg err'; msg.textContent='Please fill in the required fields.'; form[k].focus(); return; }
+      const field = form.elements.namedItem(k);
+      if (!field || !field.value.trim()){ msg.className='form-msg err'; msg.textContent='Please fill in the required fields.'; if(field) field.focus(); return; }
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value)){ msg.className='form-msg err'; msg.textContent='Please enter a valid email.'; form.email.focus(); return; }
     if (!form.consent.checked){ msg.className='form-msg err'; msg.textContent='Please tick the consent box so we can reply.'; return; }
@@ -1352,15 +1353,21 @@ $$('[data-plan-pt]').forEach(b => b.addEventListener('click', () => { $('#fplan'
 
     btn.disabled = true; btn.innerHTML = 'Sending…';
     try {
-      const mail = Object.assign({
+      const mail = Object.assign({}, data, {
         _subject: 'New RevFlow application: ' + data.name + (data.plan ? ' / ' + data.plan : ''),
-        _replyto: data.email, _template: 'table', _captcha: 'false'
-      }, data);
-      const res = await fetch('https://formsubmit.co/ajax/' + CONFIG.email, {
-        method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(mail)
+        _replyto: data.email, _template: 'table', _captcha: 'false',
+        _url: location.origin + location.pathname
       });
-      const out = await res.json().catch(() => ({}));
-      if (!res.ok || String(out.success) === 'false') throw new Error(out.message || 'send failed');
+      const res = await fetch('https://formsubmit.co/ajax/' + encodeURIComponent(CONFIG.email), {
+        method:'POST', headers:{'Accept':'application/json'}, body: new URLSearchParams(mail)
+      });
+      const out = await res.json().catch(() => null);
+      if (!res.ok || !out || String(out.success).toLowerCase() !== 'true') {
+        // Never show raw provider messages: they may contain the destination address.
+        const reason = String(out?.message || '');
+        if (/activat|confirm/i.test(reason)) throw new Error('activation_required');
+        throw new Error('delivery_failed');
+      }
       if (CONFIG.leadWebhook){
         fetch(CONFIG.leadWebhook, { method:'POST', mode:'no-cors', body: new URLSearchParams(data) }).catch(() => {});
       }
@@ -1370,7 +1377,7 @@ $$('[data-plan-pt]').forEach(b => b.addEventListener('click', () => { $('#fplan'
       const book = $('#bookNow');
       if (CONFIG.bookingUrl) book.href = CONFIG.bookingUrl; else book.style.display = 'none';
     } catch(err){
-      msg.className = 'form-msg err'; msg.textContent = 'We couldn’t send your application. Your details are still here. Please try again in a moment.';
+      msg.className = 'form-msg err'; msg.textContent = err.message === 'activation_required' ? 'Our inquiry form is being activated. Your details are still here; please try again later.' : 'We couldn’t send your application. Your details are still here. Please try again in a moment.';
       btn.disabled = false; btn.innerHTML = 'Apply for my strategy call <span class="arr">→</span>';
     }
   });
