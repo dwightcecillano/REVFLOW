@@ -1162,6 +1162,8 @@ const CONFIG = {
   // The FIRST submission sends an activation email to this inbox: click "Activate Form" once.
   email: "joseph.cecillanodwight@gmail.com",
   // Optional: also send each lead to your CRM. Paste a GoHighLevel inbound webhook or n8n Webhook URL.
+  // Optional verified anonymous FormSubmit identifier; leave blank until tested.
+  autoReplyFormId: "",
   leadWebhook: "",
   // Optional: your booking page (GoHighLevel calendar, Calendly, etc.). Shown after submit.
   bookingUrl: "",
@@ -1357,49 +1359,7 @@ $$('[data-plan-pt]').forEach(b => b.addEventListener('click', () => { $('#fplan'
   let lastCta = 'direct';
   $$('[data-cta]').forEach(a => a.addEventListener('click', () => lastCta = a.dataset.cta));
 
-  form.addEventListener('submit', async e => {
-    e.preventDefault(); msg.className = 'form-msg'; msg.textContent = '';
-    if (btn.disabled || form.elements.namedItem('company_website').value) return; // duplicate or spam bot
-    for (const k of ['name','email','phone','business_type']){
-      const field = form.elements.namedItem(k);
-      if (!field || !field.value.trim()){ msg.className='form-msg err'; msg.textContent='Please fill in the required fields.'; if(field) field.focus(); return; }
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value)){ msg.className='form-msg err'; msg.textContent='Please enter a valid email.'; form.email.focus(); return; }
-    if (!form.consent.checked){ msg.className='form-msg err'; msg.textContent='Please tick the consent box so we can reply.'; return; }
-
-    const data = Object.fromEntries(new FormData(form));
-    delete data.company_website;
-    Object.assign(data, attrib, {
-      source: 'website', cta: lastCta, page: location.href, referrer: document.referrer,
-      calc_leads_month: $('#leads').value, calc_close_rate: $('#conv').value, calc_profit_per_deal: $('#fee').value,
-      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, submitted_at: new Date().toISOString()
-    });
-
-    btn.disabled = true; btn.innerHTML = 'Sending…';
-    try {
-      const mail = Object.assign({}, data, {
-        _subject: 'New RevFlow application: ' + data.name + (data.plan ? ' / ' + data.plan : ''),
-        _replyto: data.email, _template: 'table', _captcha: 'false',
-        _url: location.origin + location.pathname
-      });
-      // Use the provider's documented Fetch/JSON format.
-      const res = await fetch('https://formsubmit.co/ajax/' + CONFIG.email, {
-        method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(mail)
-      });
-      const out = await res.json().catch(() => null);
-      const accepted = out && (out.success === true || String(out.success).trim().toLowerCase() === 'true');
-      if (!res.ok || !accepted) {
-        const reason = String(out?.message || '');
-        if (/activat|confirm/i.test(reason)) throw new Error('activation_required');
-        if (out && String(out.success).trim().toLowerCase() === 'false') throw new Error('delivery_rejected');
-        throw new Error('delivery_unconfirmed');
-      }
-    } catch(err){
-      msg.className = 'form-msg err';
-      msg.textContent = err.message === 'activation_required' ? 'Our inquiry form is being activated. Please try again later.' : err.message === 'delivery_rejected' ? 'We couldn’t send your application. Your details are still here. Please try again in a moment.' : 'We couldn’t confirm your application was received. Your details are still here. Please try again later.';
-      btn.disabled = false; btn.innerHTML = 'Apply for my strategy call <span class="arr">→</span>';
-      return;
-    }
+  function showConfirmation() {
     // Confirmed delivery must never be changed to failure by optional integrations.
     msg.textContent = '';
     form.style.display = 'none';
@@ -1458,6 +1418,79 @@ $$('[data-plan-pt]').forEach(b => b.addEventListener('click', () => { $('#fplan'
         if (remaining <= 0) go();
       },1000);
     } catch (_) { /* Navigation is optional; confirmed delivery is unaffected. */ }
+  }
+  const receiptKey='rf_pending_confirmation';
+  const returned=qs.get('rf_receipt');
+  if(returned && CONFIG.autoReplyFormId) {
+    try {
+      if(sessionStorage.getItem(receiptKey)===returned){
+        sessionStorage.removeItem(receiptKey);
+        const clean=new URL(location.href);clean.searchParams.delete('rf_receipt');
+        history.replaceState(null,'',clean.pathname+clean.search+'#apply');
+        showConfirmation();
+      }
+    } catch (_) { /* No matching submission in this browser: no confirmation. */ }
+  }
+  form.addEventListener('submit', async e => {
+    e.preventDefault(); msg.className = 'form-msg'; msg.textContent = '';
+    if (btn.disabled || form.elements.namedItem('company_website').value) return; // duplicate or spam bot
+    for (const k of ['name','email','phone','business_type']){
+      const field = form.elements.namedItem(k);
+      if (!field || !field.value.trim()){ msg.className='form-msg err'; msg.textContent='Please fill in the required fields.'; if(field) field.focus(); return; }
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value)){ msg.className='form-msg err'; msg.textContent='Please enter a valid email.'; form.email.focus(); return; }
+    if (!form.consent.checked){ msg.className='form-msg err'; msg.textContent='Please tick the consent box so we can reply.'; return; }
+
+    const data = Object.fromEntries(new FormData(form));
+    delete data.company_website;
+    Object.assign(data, attrib, {
+      source: 'website', cta: lastCta, page: location.href, referrer: document.referrer,
+      calc_leads_month: $('#leads').value, calc_close_rate: $('#conv').value, calc_profit_per_deal: $('#fee').value,
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, submitted_at: new Date().toISOString()
+    });
+
+    // Optional native FormSubmit mode: CAPTCHA on, automatic reply supported.
+    if (CONFIG.autoReplyFormId) {
+      try {
+        if (!/^[a-zA-Z0-9_-]{16,128}$/.test(CONFIG.autoReplyFormId)) throw Error('Invalid form identifier');
+        const receipt=crypto.randomUUID();
+        sessionStorage.setItem(receiptKey,receipt);
+        const next=new URL(location.pathname,location.origin);
+        next.searchParams.set('rf_receipt',receipt);next.hash='apply';
+        const values={...data,_subject:'New RevFlow application: '+data.name+(data.plan?' / '+data.plan:''),_replyto:data.email,_template:'table',_next:next.href,_autoresponse:"Thank you for reaching out to RevFlow!\n\nWe've received your application and look forward to learning about your business. Our team will review your goals and contact you within one US business day to arrange a free, no-obligation strategy call. We'll discuss your needs and recommend the right support for your business.\n\nIn the meantime, explore our services and workflows at https://dwightcecillano.github.io/REVFLOW/.\n\nTalk soon,\nThe RevFlow Team\nRevenue • Operations • Technology"};
+        const delivery=document.createElement('form');
+        delivery.method='POST';delivery.action='https://formsubmit.co/'+CONFIG.autoReplyFormId;
+        for (const [key,value] of Object.entries(values)) {const field=document.createElement('input');field.type='hidden';field.name=key;field.value=String(value);delivery.append(field);}
+        document.body.append(delivery);btn.disabled=true;btn.textContent='Continuing to verification…';
+        delivery.submit();return;
+      } catch (_) {msg.className='form-msg err';msg.textContent='Unable to start secure verification. Please try again.';btn.disabled=false;return;}
+    }
+    btn.disabled = true; btn.innerHTML = 'Sending…';
+    try {
+      const mail = Object.assign({}, data, {
+        _subject: 'New RevFlow application: ' + data.name + (data.plan ? ' / ' + data.plan : ''),
+        _replyto: data.email, _template: 'table', _captcha: 'false',
+        _url: location.origin + location.pathname
+      });
+      // Use the provider's documented Fetch/JSON format.
+      const res = await fetch('https://formsubmit.co/ajax/' + CONFIG.email, {
+        method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(mail)
+      });
+      const out = await res.json().catch(() => null);
+      const accepted = out && (out.success === true || String(out.success).trim().toLowerCase() === 'true');
+      if (!res.ok || !accepted) {
+        const reason = String(out?.message || '');
+        if (/activat|confirm/i.test(reason)) throw new Error('activation_required');
+        if (out && String(out.success).trim().toLowerCase() === 'false') throw new Error('delivery_rejected');
+        throw new Error('delivery_unconfirmed');
+      }
+    } catch(err){
+      msg.className = 'form-msg err';
+      msg.textContent = err.message === 'activation_required' ? 'Our inquiry form is being activated. Please try again later.' : err.message === 'delivery_rejected' ? 'We couldn’t send your application. Your details are still here. Please try again in a moment.' : 'We couldn’t confirm your application was received. Your details are still here. Please try again later.';
+      btn.disabled = false; btn.innerHTML = 'Apply for my strategy call <span class="arr">→</span>';
+      return;
+    }
+    showConfirmation();
     try {
       if (CONFIG.leadWebhook){
         fetch(CONFIG.leadWebhook, { method:'POST', mode:'no-cors', body: new URLSearchParams(data) }).catch(() => {});
