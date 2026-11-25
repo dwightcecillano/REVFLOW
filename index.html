@@ -1169,6 +1169,8 @@ const CONFIG = {
   // The FIRST submission sends an activation email to this inbox: click "Activate Form" once.
   email: "joseph.cecillanodwight@gmail.com",
   // Optional: also send each lead to your CRM. Paste a GoHighLevel inbound webhook or n8n Webhook URL.
+  // Reserved for a tested server-backed inquiry endpoint; disabled until deployed.
+  inquiryEndpoint: "",
   leadWebhook: "",
   // Optional: your booking page (GoHighLevel calendar, Calendly, etc.). Shown after submit.
   bookingUrl: "",
@@ -1389,12 +1391,23 @@ $$('[data-plan-pt]').forEach(b => b.addEventListener('click', () => { $('#fplan'
         _replyto: data.email, _template: 'table', _captcha: 'false',
         _url: location.origin + location.pathname
       });
-      // Use the provider's documented Fetch/JSON format.
-      const res = await fetch('https://formsubmit.co/ajax/' + CONFIG.email, {
-        method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(mail)
-      });
-      const out = await res.json().catch(() => null);
-      const accepted = out && (out.success === true || String(out.success).trim().toLowerCase() === 'true');
+      let res, out, accepted;
+      if (CONFIG.inquiryEndpoint) {
+        // The server must validate a CAPTCHA, enforce quotas/rate limits and deduplicate requests,
+        // persist the inquiry, then queue both emails. Never trust client-supplied subject/body.
+        // A successful response must contain an actual persisted application ID.
+        res = await fetch(CONFIG.inquiryEndpoint, {
+          method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body:JSON.stringify(data)
+        });
+        out = await res.json().catch(()=>null);
+        accepted = out && out.accepted === true && typeof out.applicationId === 'string' && /^[0-9a-f-]{36}$/i.test(out.applicationId);
+      } else {
+        res = await fetch('https://formsubmit.co/ajax/' + CONFIG.email, {
+          method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body:JSON.stringify(mail)
+        });
+        out = await res.json().catch(()=>null);
+        accepted = out && (out.success === true || String(out.success).trim().toLowerCase() === 'true');
+      }
       if (!res.ok || !accepted) {
         const reason = String(out?.message || '');
         if (/activat|confirm/i.test(reason)) throw new Error('activation_required');
