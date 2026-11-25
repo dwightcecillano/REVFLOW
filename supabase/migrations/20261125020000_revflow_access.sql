@@ -18,8 +18,9 @@ create table public.workspace_memberships (
 create index workspace_memberships_user_idx on public.workspace_memberships(user_id) where active;
 alter table public.workspaces enable row level security;
 alter table public.workspace_memberships enable row level security;
-revoke all on public.workspaces, public.workspace_memberships from anon, authenticated;
+revoke all on public.workspaces, public.workspace_memberships from public, anon, authenticated;
 grant select on public.workspaces, public.workspace_memberships to authenticated;
+grant select, insert, update, delete on public.workspaces, public.workspace_memberships to service_role;
 create policy own_active_membership on public.workspace_memberships for select to authenticated
   using (user_id = (select auth.uid()) and active);
 create policy accessible_workspace on public.workspaces for select to authenticated
