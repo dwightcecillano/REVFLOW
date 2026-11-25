@@ -525,6 +525,13 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
 #rfCountdown{font-family:var(--mono);color:var(--lime);font-weight:600}
 #rfStay{cursor:pointer;font-family:inherit}
 #rfStay[hidden]{display:none}
+/* Visible celebration even when motion is reduced. */
+.rf-celebration .rf-confetti{display:block;position:absolute;inset:0 0 auto;height:160px;pointer-events:none;z-index:2;overflow:hidden}
+.rf-confetti span{position:absolute;top:var(--y);left:var(--x);width:8px;height:12px;background:var(--c);border-radius:2px;opacity:.85;transform:rotate(var(--rot))}
+.rf-confetti span:nth-child(3n){width:6px;height:6px;border-radius:50%}
+.rf-celebrating .rf-confetti span{animation:rf-rain 3.8s var(--d) ease-out both}
+@keyframes rf-rain{0%{opacity:0;transform:translateY(-55px) rotate(0deg)}12%{opacity:1}70%{opacity:.9}100%{opacity:.55;transform:translateY(15px) rotate(var(--rot))}}
+@media(prefers-reduced-motion:reduce){.rf-celebrating .rf-confetti span{animation:none!important;opacity:.8;transform:rotate(var(--rot))}}
 </style>
 </head>
 <body>
@@ -1092,7 +1099,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
         <button type="submit" class="btn btn-lime" id="submitBtn">Apply for my strategy call <span class="arr">→</span></button>
         <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
       </form>
-      <div class="success rf-celebration" id="success" role="region" aria-labelledby="successTitle" tabindex="-1"><div id="rfConfetti" class="rf-confetti" aria-hidden="true"></div>
+      <div class="success rf-celebration" id="success" role="region" aria-labelledby="successTitle" tabindex="-1"><div id="rfConfetti" class="rf-confetti" aria-hidden="true"><span style="--x:5%;--y:5px;--rot:0deg;--d:0.00s;--c:#c8f169"></span><span style="--x:42%;--y:22px;--rot:43deg;--d:0.09s;--c:#eef2ee"></span><span style="--x:79%;--y:39px;--rot:86deg;--d:0.18s;--c:#2fd3b5"></span><span style="--x:25%;--y:56px;--rot:129deg;--d:0.27s;--c:#b3e04f"></span><span style="--x:62%;--y:73px;--rot:172deg;--d:0.36s;--c:#c8f169"></span><span style="--x:8%;--y:90px;--rot:215deg;--d:0.45s;--c:#eef2ee"></span><span style="--x:45%;--y:15px;--rot:258deg;--d:0.54s;--c:#2fd3b5"></span><span style="--x:82%;--y:32px;--rot:301deg;--d:0.63s;--c:#b3e04f"></span><span style="--x:28%;--y:49px;--rot:344deg;--d:0.72s;--c:#c8f169"></span><span style="--x:65%;--y:66px;--rot:27deg;--d:0.00s;--c:#eef2ee"></span><span style="--x:11%;--y:83px;--rot:70deg;--d:0.09s;--c:#2fd3b5"></span><span style="--x:48%;--y:8px;--rot:113deg;--d:0.18s;--c:#b3e04f"></span><span style="--x:85%;--y:25px;--rot:156deg;--d:0.27s;--c:#c8f169"></span><span style="--x:31%;--y:42px;--rot:199deg;--d:0.36s;--c:#eef2ee"></span><span style="--x:68%;--y:59px;--rot:242deg;--d:0.45s;--c:#2fd3b5"></span><span style="--x:14%;--y:76px;--rot:285deg;--d:0.54s;--c:#b3e04f"></span><span style="--x:51%;--y:93px;--rot:328deg;--d:0.63s;--c:#c8f169"></span><span style="--x:88%;--y:18px;--rot:11deg;--d:0.72s;--c:#eef2ee"></span><span style="--x:34%;--y:35px;--rot:54deg;--d:0.00s;--c:#2fd3b5"></span><span style="--x:71%;--y:52px;--rot:97deg;--d:0.09s;--c:#b3e04f"></span><span style="--x:17%;--y:69px;--rot:140deg;--d:0.18s;--c:#c8f169"></span><span style="--x:54%;--y:86px;--rot:183deg;--d:0.27s;--c:#eef2ee"></span><span style="--x:91%;--y:11px;--rot:226deg;--d:0.36s;--c:#2fd3b5"></span><span style="--x:37%;--y:28px;--rot:269deg;--d:0.45s;--c:#b3e04f"></span><span style="--x:74%;--y:45px;--rot:312deg;--d:0.54s;--c:#c8f169"></span><span style="--x:20%;--y:62px;--rot:355deg;--d:0.63s;--c:#eef2ee"></span><span style="--x:57%;--y:79px;--rot:38deg;--d:0.72s;--c:#2fd3b5"></span><span style="--x:94%;--y:96px;--rot:81deg;--d:0.00s;--c:#b3e04f"></span><span style="--x:40%;--y:21px;--rot:124deg;--d:0.09s;--c:#c8f169"></span><span style="--x:77%;--y:38px;--rot:167deg;--d:0.18s;--c:#eef2ee"></span><span style="--x:23%;--y:55px;--rot:210deg;--d:0.27s;--c:#2fd3b5"></span><span style="--x:60%;--y:72px;--rot:253deg;--d:0.36s;--c:#b3e04f"></span><span style="--x:6%;--y:89px;--rot:296deg;--d:0.45s;--c:#c8f169"></span><span style="--x:43%;--y:14px;--rot:339deg;--d:0.54s;--c:#eef2ee"></span><span style="--x:80%;--y:31px;--rot:22deg;--d:0.63s;--c:#2fd3b5"></span><span style="--x:26%;--y:48px;--rot:65deg;--d:0.72s;--c:#b3e04f"></span></div>
         <div class="big"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg></div>
         <h3 id="successTitle">You’re in! <span class="s">Talk soon.</span></h3>
         <p>Your application has been submitted. We’ll reach out within one US business day to discuss your goals and arrange a free strategy call.</p>
@@ -1162,8 +1169,8 @@ const CONFIG = {
   // The FIRST submission sends an activation email to this inbox: click "Activate Form" once.
   email: "joseph.cecillanodwight@gmail.com",
   // Optional: also send each lead to your CRM. Paste a GoHighLevel inbound webhook or n8n Webhook URL.
-  // Optional verified anonymous FormSubmit identifier; leave blank until tested.
-  autoReplyFormId: "",
+  // Reserved for a tested server-backed inquiry endpoint; disabled until deployed.
+  inquiryEndpoint: "",
   leadWebhook: "",
   // Optional: your booking page (GoHighLevel calendar, Calendly, etc.). Shown after submit.
   bookingUrl: "",
@@ -1359,78 +1366,6 @@ $$('[data-plan-pt]').forEach(b => b.addEventListener('click', () => { $('#fplan'
   let lastCta = 'direct';
   $$('[data-cta]').forEach(a => a.addEventListener('click', () => lastCta = a.dataset.cta));
 
-  function showConfirmation() {
-    // Confirmed delivery must never be changed to failure by optional integrations.
-    msg.textContent = '';
-    form.style.display = 'none';
-    const confirmation = $('#success');
-    confirmation.style.display = 'block';
-    confirmation.focus({preventScroll:true});
-    confirmation.scrollIntoView({behavior:reduce ? 'instant' : 'smooth',block:'center'});
-    if (!reduce) {
-      try {
-        const confetti = $('#rfConfetti');
-        const colors = ['#c8f169','#eef2ee','#2fd3b5','#b3e04f'];
-        for (let i=0;i<28;i++) {
-          const piece=document.createElement('i');
-          const angle=i*2.399963;
-          const distance=55+(i%7)*19;
-          piece.style.setProperty('--dx',Math.round(Math.cos(angle)*distance)+'px');
-          piece.style.setProperty('--dy',Math.round(Math.sin(angle)*distance+45)+'px');
-          piece.style.setProperty('--spin',(i%2?1:-1)*(180+i*18)+'deg');
-          piece.style.setProperty('--delay',(i%5)*35+'ms');
-          piece.style.background=colors[i%colors.length];
-          confetti.appendChild(piece);
-        }
-        setTimeout(()=>confetti.replaceChildren(),1650);
-      } catch (_) { /* Celebration is optional; delivery remains confirmed. */ }
-    }
-    const book = $('#bookNow');
-    if (CONFIG.bookingUrl) book.href = CONFIG.bookingUrl; else book.style.display = 'none';
-    // Start the optional testimonial transition only after confirmed delivery.
-    try {
-      const status = $('#rfRedirectStatus'), count = $('#rfCountdown'), stay = $('#rfStay'), view = $('#rfViewStories');
-      let timer = null, remaining = 10, stopped = false;
-      const stop = () => {
-        stopped = true;
-        if (timer !== null) clearInterval(timer);
-        timer = null;
-        status.textContent = 'You can explore client stories whenever you’re ready.';
-        stay.hidden = true;
-      };
-      const go = () => {
-        stop();
-        const target = $('#testimonials');
-        if (!target) return;
-        if (location.hash !== '#testimonials') history.pushState(null, '', '#testimonials');
-        target.scrollIntoView({behavior:reduce ? 'instant' : 'smooth',block:'start'});
-        const heading = target.querySelector('h2');
-        if (heading) { heading.setAttribute('tabindex','-1'); heading.focus({preventScroll:true}); }
-      };
-      stay.addEventListener('click',stop,{once:true});
-      view.addEventListener('click',e=>{e.preventDefault();go();},{once:true});
-      confirmation.querySelectorAll('a:not(#rfViewStories)').forEach(link=>link.addEventListener('click',stop,{once:true}));
-      timer = setInterval(()=>{
-        if (stopped) return;
-        if (document.hidden) return;
-        remaining--;
-        count.textContent = String(remaining);
-        if (remaining <= 0) go();
-      },1000);
-    } catch (_) { /* Navigation is optional; confirmed delivery is unaffected. */ }
-  }
-  const receiptKey='rf_pending_confirmation';
-  const returned=qs.get('rf_receipt');
-  if(returned && CONFIG.autoReplyFormId) {
-    try {
-      if(sessionStorage.getItem(receiptKey)===returned){
-        sessionStorage.removeItem(receiptKey);
-        const clean=new URL(location.href);clean.searchParams.delete('rf_receipt');
-        history.replaceState(null,'',clean.pathname+clean.search+'#apply');
-        showConfirmation();
-      }
-    } catch (_) { /* No matching submission in this browser: no confirmation. */ }
-  }
   form.addEventListener('submit', async e => {
     e.preventDefault(); msg.className = 'form-msg'; msg.textContent = '';
     if (btn.disabled || form.elements.namedItem('company_website').value) return; // duplicate or spam bot
@@ -1449,22 +1384,6 @@ $$('[data-plan-pt]').forEach(b => b.addEventListener('click', () => { $('#fplan'
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, submitted_at: new Date().toISOString()
     });
 
-    // Optional native FormSubmit mode: CAPTCHA on, automatic reply supported.
-    if (CONFIG.autoReplyFormId) {
-      try {
-        if (!/^[a-zA-Z0-9_-]{16,128}$/.test(CONFIG.autoReplyFormId)) throw Error('Invalid form identifier');
-        const receipt=crypto.randomUUID();
-        sessionStorage.setItem(receiptKey,receipt);
-        const next=new URL(location.pathname,location.origin);
-        next.searchParams.set('rf_receipt',receipt);next.hash='apply';
-        const values={...data,_subject:'RevFlow | Strategy Call Application: '+data.name,_replyto:data.email,_template:'table',_next:next.href,_autoresponse:"Hi there!\n\nThank you for taking the time to reach out to RevFlow. We're excited to get to know you and learn more about your business.\n\nWe've received your request for a quick intro chat. Our team will personally review your inquiry and reach out within one US business day to arrange a quick, no-pressure intro chat and discuss your goals, the challenges you're facing, and how we might help you get more time back.\n\nThere's no pressure and no obligation. In the meantime, feel free to explore what we do at https://dwightcecillano.github.io/REVFLOW/.\n\nWe look forward to connecting with you!\n\nWarm regards,\nThe RevFlow Team\nRevenue • Operations • Technology"};
-        const delivery=document.createElement('form');
-        delivery.method='POST';delivery.action='https://formsubmit.co/'+CONFIG.autoReplyFormId;
-        for (const [key,value] of Object.entries(values)) {const field=document.createElement('input');field.type='hidden';field.name=key;field.value=String(value);delivery.append(field);}
-        document.body.append(delivery);btn.disabled=true;btn.textContent='Continuing to verification…';
-        delivery.submit();return;
-      } catch (_) {msg.className='form-msg err';msg.textContent='Unable to start secure verification. Please try again.';btn.disabled=false;return;}
-    }
     btn.disabled = true; btn.innerHTML = 'Sending…';
     try {
       const mail = Object.assign({}, data, {
@@ -1472,12 +1391,23 @@ $$('[data-plan-pt]').forEach(b => b.addEventListener('click', () => { $('#fplan'
         _replyto: data.email, _template: 'table', _captcha: 'false',
         _url: location.origin + location.pathname
       });
-      // Use the provider's documented Fetch/JSON format.
-      const res = await fetch('https://formsubmit.co/ajax/' + CONFIG.email, {
-        method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(mail)
-      });
-      const out = await res.json().catch(() => null);
-      const accepted = out && (out.success === true || String(out.success).trim().toLowerCase() === 'true');
+      let res, out, accepted;
+      if (CONFIG.inquiryEndpoint) {
+        // The server must validate a CAPTCHA, enforce quotas/rate limits and deduplicate requests,
+        // persist the inquiry, then queue both emails. Never trust client-supplied subject/body.
+        // A successful response must contain an actual persisted application ID.
+        res = await fetch(CONFIG.inquiryEndpoint, {
+          method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body:JSON.stringify(data)
+        });
+        out = await res.json().catch(()=>null);
+        accepted = out && out.accepted === true && typeof out.applicationId === 'string' && /^[0-9a-f-]{36}$/i.test(out.applicationId);
+      } else {
+        res = await fetch('https://formsubmit.co/ajax/' + CONFIG.email, {
+          method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body:JSON.stringify(mail)
+        });
+        out = await res.json().catch(()=>null);
+        accepted = out && (out.success === true || String(out.success).trim().toLowerCase() === 'true');
+      }
       if (!res.ok || !accepted) {
         const reason = String(out?.message || '');
         if (/activat|confirm/i.test(reason)) throw new Error('activation_required');
@@ -1490,7 +1420,48 @@ $$('[data-plan-pt]').forEach(b => b.addEventListener('click', () => { $('#fplan'
       btn.disabled = false; btn.innerHTML = 'Apply for my strategy call <span class="arr">→</span>';
       return;
     }
-    showConfirmation();
+    // Confirmed delivery must never be changed to failure by optional integrations.
+    msg.textContent = '';
+    form.style.display = 'none';
+    const confirmation = $('#success');
+    confirmation.style.display = 'block';
+    // Native immediate scrolling ensures the celebration is in view.
+    try { confirmation.scrollIntoView({behavior:'instant',block:'center'}); } catch (_) { confirmation.scrollIntoView(); }
+    try { confirmation.focus({preventScroll:true}); } catch (_) {}
+    confirmation.classList.add('rf-celebrating');
+    const book = $('#bookNow');
+    if (CONFIG.bookingUrl) book.href = CONFIG.bookingUrl; else book.style.display = 'none';
+    // Fixed ten-second deadline; native fragment navigation.
+    const status = $('#rfRedirectStatus'), count = $('#rfCountdown'), stay = $('#rfStay'), view = $('#rfViewStories');
+    let ticker = null, deadlineTimer = null, stopped = false;
+    const deadline = Date.now() + 10000;
+    const stop = () => {
+      if (stopped) return;
+      stopped = true;
+      clearInterval(ticker);
+      clearTimeout(deadlineTimer);
+      document.removeEventListener('visibilitychange', update);
+      if (status) status.textContent = 'You can explore client stories whenever you’re ready.';
+      if (stay) stay.hidden = true;
+    };
+    const go = () => {
+      if (stopped) return;
+      stop();
+      if (location.hash !== '#testimonials') location.hash = '#testimonials';
+      else { const target = $('#testimonials'); if (target) target.scrollIntoView({block:'start'}); }
+    };
+    function update() {
+      if (stopped) return;
+      const remaining = Math.max(0, Math.ceil((deadline-Date.now())/1000));
+      if (count) count.textContent = String(remaining);
+      if (remaining === 0) go();
+    }
+    if (stay) stay.addEventListener('click',stop,{once:true});
+    if (view) view.addEventListener('click',e=>{e.preventDefault();go();},{once:true});
+    confirmation.querySelectorAll('a:not(#rfViewStories)').forEach(link=>link.addEventListener('click',stop,{once:true}));
+    deadlineTimer = setTimeout(go,10000);
+    ticker = setInterval(update,250);
+    document.addEventListener('visibilitychange',update);
     try {
       if (CONFIG.leadWebhook){
         fetch(CONFIG.leadWebhook, { method:'POST', mode:'no-cors', body: new URLSearchParams(data) }).catch(() => {});
