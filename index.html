@@ -1077,7 +1077,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
       <div class="success" id="success">
         <div class="big"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg></div>
         <h3>You're in. <span class="s">Talk soon.</span></h3>
-        <p>We'll reach out within one US business day. Want to skip the wait?</p>
+        <p>Your application has been submitted. We'll reach out within one US business day.</p>
         <a href="#" class="btn btn-lime" id="bookNow" target="_blank" rel="noopener">Pick a time now <span class="arr">→</span></a>
       </div>
     </div>
@@ -1358,28 +1358,37 @@ $$('[data-plan-pt]').forEach(b => b.addEventListener('click', () => { $('#fplan'
         _replyto: data.email, _template: 'table', _captcha: 'false',
         _url: location.origin + location.pathname
       });
-      const res = await fetch('https://formsubmit.co/ajax/' + encodeURIComponent(CONFIG.email), {
-        method:'POST', headers:{'Accept':'application/json'}, body: new URLSearchParams(mail)
+      // Use the provider's documented Fetch/JSON format.
+      const res = await fetch('https://formsubmit.co/ajax/' + CONFIG.email, {
+        method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(mail)
       });
       const out = await res.json().catch(() => null);
-      if (!res.ok || !out || String(out.success).toLowerCase() !== 'true') {
-        // Never show raw provider messages: they may contain the destination address.
+      const accepted = out && (out.success === true || String(out.success).trim().toLowerCase() === 'true');
+      if (!res.ok || !accepted) {
         const reason = String(out?.message || '');
         if (/activat|confirm/i.test(reason)) throw new Error('activation_required');
-        throw new Error('delivery_failed');
+        if (out && String(out.success).trim().toLowerCase() === 'false') throw new Error('delivery_rejected');
+        throw new Error('delivery_unconfirmed');
       }
+    } catch(err){
+      msg.className = 'form-msg err';
+      msg.textContent = err.message === 'activation_required' ? 'Our inquiry form is being activated. Please try again later.' : err.message === 'delivery_rejected' ? 'We couldn’t send your application. Your details are still here. Please try again in a moment.' : 'We couldn’t confirm your application was received. Your details are still here. Please try again later.';
+      btn.disabled = false; btn.innerHTML = 'Apply for my strategy call <span class="arr">→</span>';
+      return;
+    }
+    // Confirmed delivery must never be changed to failure by optional integrations.
+    msg.textContent = '';
+    form.style.display = 'none';
+    $('#success').style.display = 'block';
+    const book = $('#bookNow');
+    if (CONFIG.bookingUrl) book.href = CONFIG.bookingUrl; else book.style.display = 'none';
+    try {
       if (CONFIG.leadWebhook){
         fetch(CONFIG.leadWebhook, { method:'POST', mode:'no-cors', body: new URLSearchParams(data) }).catch(() => {});
       }
       (window.dataLayer = window.dataLayer || []).push({event:'generate_lead', business_type:data.business_type, plan:data.plan});
-      if (window.fbq) fbq('track','Lead');
-      form.style.display = 'none'; $('#success').style.display = 'block';
-      const book = $('#bookNow');
-      if (CONFIG.bookingUrl) book.href = CONFIG.bookingUrl; else book.style.display = 'none';
-    } catch(err){
-      msg.className = 'form-msg err'; msg.textContent = err.message === 'activation_required' ? 'Our inquiry form is being activated. Your details are still here; please try again later.' : 'We couldn’t send your application. Your details are still here. Please try again in a moment.';
-      btn.disabled = false; btn.innerHTML = 'Apply for my strategy call <span class="arr">→</span>';
-    }
+    } catch (_) { /* Optional integration must not change delivery status. */ }
+    try { if (typeof window.fbq === 'function') window.fbq('track','Lead'); } catch (_) { /* Optional tracking. */ }
   });
 })();
 
