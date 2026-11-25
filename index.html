@@ -520,6 +520,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
 .rf-success-links{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:12px}
 .rf-success-links .btn{font-size:13px}
 @media(prefers-reduced-motion:reduce){.rf-confetti{display:none}}
+.rf-testimonial-next{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.rf-testimonial-next p{font-size:13px;margin:0 0 10px}
+#rfCountdown{font-family:var(--mono);color:var(--lime);font-weight:600}
+#rfStay{cursor:pointer;font-family:inherit}
+#rfStay[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -1093,6 +1098,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
         <p>Your application has been submitted. We’ll reach out within one US business day to discuss your goals and arrange a free strategy call.</p>
         <div class="rf-next"><span class="mono">WHAT HAPPENS NEXT</span><ol><li>We review your application.</li><li>We discuss your business and priorities.</li><li>We recommend the right support, with no obligation.</li></ol></div>
         <a href="#" class="btn btn-lime" id="bookNow" target="_blank" rel="noopener">Pick a time now <span class="arr">→</span></a>
+        <div class="rf-testimonial-next">
+          <p id="rfRedirectStatus">Continuing to our client stories in <span id="rfCountdown">10</span> seconds.</p>
+          <div class="rf-success-links"><a class="btn btn-lime" id="rfViewStories" href="#testimonials">View client stories now →</a><button type="button" class="btn btn-ghost" id="rfStay">Stay here</button></div>
+        </div>
         <div class="rf-success-links"><a class="btn btn-ghost" href="#workflows">Explore our workflows ↗</a><a class="btn btn-ghost" href="#team">Meet the team ↗</a></div>
       </div>
     </div>
@@ -1418,6 +1427,37 @@ $$('[data-plan-pt]').forEach(b => b.addEventListener('click', () => { $('#fplan'
     }
     const book = $('#bookNow');
     if (CONFIG.bookingUrl) book.href = CONFIG.bookingUrl; else book.style.display = 'none';
+    // Start the optional testimonial transition only after confirmed delivery.
+    try {
+      const status = $('#rfRedirectStatus'), count = $('#rfCountdown'), stay = $('#rfStay'), view = $('#rfViewStories');
+      let timer = null, remaining = 10, stopped = false;
+      const stop = () => {
+        stopped = true;
+        if (timer !== null) clearInterval(timer);
+        timer = null;
+        status.textContent = 'You can explore client stories whenever you’re ready.';
+        stay.hidden = true;
+      };
+      const go = () => {
+        stop();
+        const target = $('#testimonials');
+        if (!target) return;
+        if (location.hash !== '#testimonials') history.pushState(null, '', '#testimonials');
+        target.scrollIntoView({behavior:reduce ? 'instant' : 'smooth',block:'start'});
+        const heading = target.querySelector('h2');
+        if (heading) { heading.setAttribute('tabindex','-1'); heading.focus({preventScroll:true}); }
+      };
+      stay.addEventListener('click',stop,{once:true});
+      view.addEventListener('click',e=>{e.preventDefault();go();},{once:true});
+      confirmation.querySelectorAll('a:not(#rfViewStories)').forEach(link=>link.addEventListener('click',stop,{once:true}));
+      timer = setInterval(()=>{
+        if (stopped) return;
+        if (document.hidden) return;
+        remaining--;
+        count.textContent = String(remaining);
+        if (remaining <= 0) go();
+      },1000);
+    } catch (_) { /* Navigation is optional; confirmed delivery is unaffected. */ }
     try {
       if (CONFIG.leadWebhook){
         fetch(CONFIG.leadWebhook, { method:'POST', mode:'no-cors', body: new URLSearchParams(data) }).catch(() => {});
