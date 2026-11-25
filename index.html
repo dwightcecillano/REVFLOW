@@ -498,6 +498,15 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
 #testimonials{scroll-margin-top:85px}
 @media(min-width:981px){.nav-links{gap:clamp(9px,1.3vw,17px);font-size:13px}}
 @media(max-width:980px){.hero-media{gap:14px}.founder-intro{padding:16px}}
+/* Visitor journey: relevant next steps without an extra form */
+.hero-path{margin-top:26px;max-width:530px}
+.hero-path>p{color:var(--muted);font-size:11px;letter-spacing:.08em;margin-bottom:10px}
+.hero-path-links{display:grid;gap:7px}
+.hero-path-links a{display:flex;align-items:center;gap:12px;min-height:46px;padding:10px 13px;background:var(--card);border:1px solid var(--line);border-radius:12px;color:var(--text);font-size:13px;transition:background .2s,border-color .2s}
+.hero-path-links a:hover,.hero-path-links a:focus-visible{background:var(--card2);border-color:var(--lime);outline-offset:3px}
+.hero-path-links a span{font-family:var(--mono);font-size:11px;color:var(--lime)}
+.hero-path-links a b{font-weight:400;margin-left:auto;color:var(--lime)}
+@media(max-width:980px){.hero-path{margin-top:22px}.hero-path-links a{font-size:14px}}
 </style>
 </head>
 <body>
@@ -537,12 +546,20 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
     <div>
       <span class="tag mono"><b>●</b> revenue / operations / technology</span>
       <h1><span class="nw">Your whole business,</span><br>working <span class="s">for you.</span></h1>
-      <p class="lead">Even when you're on the road or out of the country. RevFlow sets up your business systems (CRM, automations and AI follow-up) and gives you your own trained VA, part-time or full-time, fully managed by our team so you never have to babysit.</p>
+      <p class="lead">Get a dedicated virtual assistant, managed by RevFlow, plus business systems that help you follow up with leads, organize daily work and get more time back.</p>
       <div class="cta-row">
-        <a href="#apply" class="btn btn-lime" data-cta="hero">Apply now <span class="arr">→</span></a>
-        <a href="#pricing" class="btn btn-ghost" data-cta="hero-pricing">See pricing</a>
+        <a href="#apply" class="btn btn-lime" data-cta="hero">Get a free strategy call <span class="arr">→</span></a>
+        <a href="#pricing" class="btn btn-ghost" data-cta="hero-pricing">Explore plans</a>
       </div>
-      <p class="micro mono"><span>live in 24–72 h</span> / <span>we manage your VA</span> / <span>from $679/mo</span></p>
+      <p class="micro mono"><span>part-time or full-time</span> / <span>managed support</span> / <span>from $679/mo</span></p>
+      <div class="hero-path" aria-label="Find the right support">
+        <p class="mono">WHAT WOULD YOU LIKE TO IMPROVE?</p>
+        <div class="hero-path-links">
+          <a href="#workflows" data-cta="hero-leads"><span>01</span> Capture &amp; follow up with leads <b aria-hidden="true">↗</b></a>
+          <a href="#roles" data-cta="hero-va"><span>02</span> Delegate daily work <b aria-hidden="true">↗</b></a>
+          <a href="#system" data-cta="hero-systems"><span>03</span> Organize my business systems <b aria-hidden="true">↗</b></a>
+        </div>
+      </div>
     </div>
 
     <div class="hero-media">
