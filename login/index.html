@@ -23,7 +23,7 @@
 <p id="authMessage" role="status" aria-live="polite"></p></div>
 <a class="btn" id="returnHome" href="../">Return to RevFlow →</a><p class="caption">Account access is invitation-only.</p></section></main>
 <footer><div class="wrap mono"><span>REVFLOW / CLIENT WORKSPACE</span><span>Revenue · Operations · Technology</span></div></footer><script type="module">
-const settings = Object.freeze({url:"",publishableKey:""}); // Browser-safe publishable key only.
+const settings = Object.freeze({url:"https://yfrhhmddkyhenimqslcf.supabase.co",publishableKey:"sb_publishable_mKNHo5_o5wOvjiiCrbH_Ww_Un686s7S"}); // Browser-safe publishable key only.
 const $ = id => document.getElementById(id);
 if (/^https:\/\/[a-z0-9-]+\.supabase\.co\/?$/.test(settings.url) && settings.publishableKey.startsWith("sb_publishable_")) {
   try {
@@ -41,11 +41,13 @@ if (/^https:\/\/[a-z0-9-]+\.supabase\.co\/?$/.test(settings.url) && settings.pub
         const {error}=await client.auth.signInWithPassword({email:$("email").value.trim(),password:$("password").value});
         $("password").value="";
         if(error) throw new Error("Sign-in failed");
-        const {data,error:queryError}=await client.from("workspace_memberships").select("role,display_name,workspaces(name)").eq("active",true);
-        if(queryError||!data?.length){await client.auth.signOut({scope:"local"});reset();message.textContent="No active workspace access. Contact your account manager.";return;}
+        const {data:account,error:accountError}=await client.from("revflow_accounts").select("role").single();
+        if(accountError||!account) throw new Error("No authorized account");
+        const {data,error:queryError}=await client.from("revflow_workspaces").select("name");
+        if(queryError||(!data?.length&&account.role!=="admin")){await client.auth.signOut({scope:"local"});reset();message.textContent="No active workspace access. Contact your account manager.";return;}
         list.replaceChildren();
-        for(const membership of data){const li=document.createElement("li");li.textContent=(membership.workspaces?.name||"Workspace")+" — "+membership.role;list.append(li);}
-        form.hidden=true;panel.hidden=false;message.textContent="Signed in. Your assigned workspaces are listed above. CRM features are not yet enabled.";
+        for(const membership of data){const li=document.createElement("li");li.textContent=(membership.name||"Workspace")+" — "+account.role;list.append(li);}
+        form.hidden=true;panel.hidden=false;message.textContent="Signed in as "+account.role+". CRM features are not yet enabled.";
       }catch{await client.auth.signOut({scope:"local"}).catch(()=>{});reset();message.textContent="Unable to sign in. Check your credentials or contact your account manager.";}
       finally{button.disabled=false;}
     });
