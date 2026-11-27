@@ -32,3 +32,11 @@ An invited client signs in, sees their assigned VA, submits a task and sees the 
 - [ ] Task comments, files, recurring work, deadlines, time entries, attendance and performance reporting.
 - [ ] Contracts, invoicing, payroll, billing, subscriptions and authorized financial reporting.
 - [ ] Client communications, automation monitoring, analytics and AI integrations after core workflows pass.
+
+## 2026-11-27 10:05 PHT — discovery readiness
+
+- Tested (repository comparison only): [draft form commit](https://github.com/dwightcecillano/REVFLOW/commit/a0bf3cba498d324157284fd9fb4b585b1a791f7b) is two commits ahead of 9eaebc6; only index.html changed.
+- Built, source reviewed: short discovery form, consent validation and responsive CSS. Prior isolated submission pass reported by founder; not rerun here.
+- Blocked: CRM webhook and booking URL are empty. Optional webhook uses no-cors and ignores errors; this cannot establish durable capture or deduplication. Do not populate a public webhook with privileged credentials.
+- Pending: browser QA, actual inbox delivery, private booking, schema reconciliation, role isolation, invitation and first task journey. No completion notices sent.
+- Next: use isolated browser with intercepted network; test 390px and 1440px, success/failure and double submit. Implement server-side inquiry receipt with stable request ID, unique constraint and retry-safe response before enabling CRM capture. Keep production untouched.
