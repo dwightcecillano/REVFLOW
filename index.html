@@ -532,6 +532,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
 .rf-celebrating .rf-confetti span{animation:rf-rain 3.8s var(--d) ease-out both}
 @keyframes rf-rain{0%{opacity:0;transform:translateY(-55px) rotate(0deg)}12%{opacity:1}70%{opacity:.9}100%{opacity:.55;transform:translateY(15px) rotate(var(--rot))}}
 @media(prefers-reduced-motion:reduce){.rf-celebrating .rf-confetti span{animation:none!important;opacity:.8;transform:rotate(var(--rot))}}
+#example{scroll-margin-top:85px;padding:clamp(20px,4vw,40px);min-width:0}
+.call-example h2{font-size:clamp(26px,4vw,40px);line-height:1.1}
+.call-example dt{color:var(--lime);font-weight:600;margin-top:16px}
+.call-example dd{margin:4px 0 16px;line-height:1.5}
+.call-example .founder-link{display:block;margin-top:16px}
 </style>
 </head>
 <body>
@@ -544,19 +549,15 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
       RevFlow
     </a>
     <nav class="nav-links" id="navLinks">
-      <a href="#workflows">Workflows</a>
-      <a href="#roles">VA roles</a>
-      <a href="#managed">Managed</a>
+      <a href="#example">How it works</a>
       <a href="#pricing">Pricing</a>
-      <a href="#team">Team</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#faq">FAQ</a>
+      <a href="#team">About</a>
       <a href="login/" class="client-login">Client Login ↗</a>
-      <a href="#apply" class="btn btn-lime menu-cta" data-cta="menu">Apply now →</a>
+      <a href="#apply" class="btn btn-lime menu-cta" data-cta="menu">Discovery call →</a>
     </nav>
     <div class="nav-right">
       <span class="status mono"><span class="dot"></span>your team is online</span>
-      <a href="#apply" class="btn btn-lime btn-sm" data-cta="nav">Apply now</a>
+      <a href="#apply" class="btn btn-lime btn-sm" data-cta="nav">Discovery call</a>
       <button class="burger" id="burger" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </div>
@@ -570,60 +571,42 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
   <div class="wrap">
     <div>
       <span class="tag mono"><b>●</b> revenue / operations / technology</span>
-      <h1><span class="nw">Your whole business,</span><br>working <span class="s">for you.</span></h1>
-      <p class="lead">Get a dedicated virtual assistant, managed by RevFlow, plus business systems that help you follow up with leads, organize daily work and get more time back.</p>
+      <h1>What would you take <span class="s">off your plate</span> this week?</h1>
+      <p class="lead">We match you with a Filipino virtual assistant and set up the tools they need to handle the work you hand over.</p>
       <div class="cta-row">
-        <a href="#apply" class="btn btn-lime" data-cta="hero">Get a free strategy call <span class="arr">→</span></a>
-        <a href="#pricing" class="btn btn-ghost" data-cta="hero-pricing">Explore plans</a>
+        <a href="#example" class="btn btn-lime" data-cta="hero">See an example <span class="arr">→</span></a>
+        <a href="#pricing" class="btn btn-ghost" data-cta="hero-pricing">View pricing</a>
       </div>
+      <p>Built by <a href="#team">Dwight Cecillano</a>, a US real estate operations and CRM specialist.</p>
       <p class="micro mono"><span>part-time or full-time</span> / <span>managed support</span> / <span>from $679/mo</span></p>
-      <div class="hero-path" aria-label="Find the right support">
-        <p class="mono">WHAT WOULD YOU LIKE TO IMPROVE?</p>
-        <div class="hero-path-links">
-          <a href="#workflows" data-cta="hero-leads"><span>01</span> Capture &amp; follow up with leads <b aria-hidden="true">↗</b></a>
-          <a href="#roles" data-cta="hero-va"><span>02</span> Delegate daily work <b aria-hidden="true">↗</b></a>
-          <a href="#system" data-cta="hero-systems"><span>03</span> Organize my business systems <b aria-hidden="true">↗</b></a>
-        </div>
-      </div>
     </div>
 
     <div class="hero-media">
-      <article class="glass founder-intro" id="founder-video" aria-labelledby="founder-video-title">
-        <span class="mono">FROM THE FOUNDER / INTRODUCTION</span>
-        <h2 id="founder-video-title">Meet the person behind <span class="s">RevFlow.</span></h2>
-        <!-- When the real recording is ready, replace this placeholder with a video element with controls, preload="none", and a captions track, or an approved hosted video embed. -->
-        <div class="founder-frame">
-          <div><span class="founder-initials" aria-hidden="true">DC</span><strong>Dwight Cecillano</strong><small>Founder introduction video coming soon</small></div>
-        </div>
-        <p>Why we bring together people, processes and technology to help business owners get time back.</p>
-        <a class="founder-link mono" href="#team">Meet our founder →</a>
+      <article class="glass call-example" id="example" aria-labelledby="sample-title">
+        <p class="eyebrow mono">Sample workflow · Real estate</p>
+        <h2 id="sample-title">From inquiry to callback</h2>
+        <dl><dt>Sample lead</dt><dd>Alex asked about a Saturday home tour.</dd>
+        <dt>VA’s follow-up note</dt><dd>Alex prefers mornings. The agent needs to confirm a showing time.</dd>
+        <dt>Next step</dt><dd>Your VA calls Alex back Friday at 10 am Eastern with the agent’s update.</dd></dl>
+        <a class="btn btn-lime" href="#apply" data-cta="sample-discovery">Request a video call →</a>
+        <a class="founder-link" href="#workflows">See another industry →</a>
       </article>
-    <div class="glass flow" aria-label="Example lead workflow">
-      <div class="flow-head mono">
-        <span>workflow / done-for-<span id="forNiche">e-commerce</span></span>
-        <span class="live"><span class="dot"></span>running</span>
-      </div>
-      <svg viewBox="0 0 440 250" role="img" aria-label="Lead to appointment workflow">
-        <path class="edge" d="M110 45 H160"/>
-        <path class="edge-live" d="M110 45 H160"/>
-        <path class="edge" d="M270 45 H300 V100 H330"/>
-        <path class="edge-live" d="M270 45 H300 V100 H330"/>
-        <path class="edge" d="M215 70 V125 H160"/>
-        <path class="edge" d="M380 125 V165 H300"/>
-        <path class="edge-live" d="M380 125 V165 H300"/>
-        <path class="edge" d="M190 190 H110"/>
-        <path class="edge-live" d="M190 190 H110"/>
-        <g class="node on"><rect x="10" y="22" width="100" height="46" rx="9"/><text x="22" y="42">New request</text><text class="sub" x="22" y="57">any channel</text></g>
-        <g class="node on"><rect x="160" y="22" width="110" height="46" rx="9"/><text x="172" y="42">AI sorts it</text><text class="sub" x="172" y="57">replies in 60 s</text></g>
-        <g class="node"><rect x="50" y="102" width="110" height="46" rx="9"/><text x="62" y="122">Needs you?</text><text class="sub" x="62" y="137">flagged to you</text></g>
-        <g class="node on"><rect x="330" y="78" width="100" height="46" rx="9"/><text x="342" y="98">Your VA</text><text class="sub" x="342" y="113">handles it</text></g>
-        <g class="node on"><rect x="190" y="166" width="110" height="46" rx="9"/><text x="202" y="186">RevFlow QA</text><text class="sub" x="202" y="201">reviewed weekly</text></g>
-        <g class="node on"><rect x="10" y="166" width="100" height="46" rx="9"/><text x="22" y="186">Done ✓</text><text class="sub" x="22" y="201">in your EOD</text></g>
-        <circle r="3.5" fill="#c8f169"><animateMotion dur="5s" repeatCount="indefinite" path="M110 45 H160 M270 45 H300 V100 H330 M380 125 V165 H300 M190 190 H110"/></circle>
-        <text x="272" y="36" font-family="JetBrains Mono" font-size="9" fill="#7f8a84">routine</text>
-      </svg>
-      <div class="log mono" id="log"></div>
+
     </div>
+  </div>
+</section>
+
+<section class="sec" id="workflows" style="padding-top:20px">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow mono">see it work</p>
+      <h2>Pick your business. <span class="s">Watch it run.</span></h2>
+      <p class="sec-sub">Choose an industry, a VA role or a tech role to see a sample workflow we'd set up for you. Tap any industry or role card on this page to jump here.</p>
+    </div>
+    <div class="wf reveal" id="wfExplorer">
+      <div class="toggle wf-tabs" id="wfTabs" role="tablist" aria-label="Workflow type"></div>
+      <div class="wf-chips" id="wfChips"></div>
+      <div class="glass wf-out" id="wfOut" aria-live="polite"></div>
     </div>
   </div>
 </section>
@@ -668,6 +651,32 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
       </article>
     </div>
   </div>
+<div class="wrap">    <div class="glass flow" aria-label="Example lead workflow">
+      <div class="flow-head mono">
+        <span>workflow / done-for-<span id="forNiche">e-commerce</span></span>
+        <span class="live"><span class="dot"></span>running</span>
+      </div>
+      <svg viewBox="0 0 440 250" role="img" aria-label="Lead to appointment workflow">
+        <path class="edge" d="M110 45 H160"/>
+        <path class="edge-live" d="M110 45 H160"/>
+        <path class="edge" d="M270 45 H300 V100 H330"/>
+        <path class="edge-live" d="M270 45 H300 V100 H330"/>
+        <path class="edge" d="M215 70 V125 H160"/>
+        <path class="edge" d="M380 125 V165 H300"/>
+        <path class="edge-live" d="M380 125 V165 H300"/>
+        <path class="edge" d="M190 190 H110"/>
+        <path class="edge-live" d="M190 190 H110"/>
+        <g class="node on"><rect x="10" y="22" width="100" height="46" rx="9"/><text x="22" y="42">New request</text><text class="sub" x="22" y="57">any channel</text></g>
+        <g class="node on"><rect x="160" y="22" width="110" height="46" rx="9"/><text x="172" y="42">AI sorts it</text><text class="sub" x="172" y="57">replies in 60 s</text></g>
+        <g class="node"><rect x="50" y="102" width="110" height="46" rx="9"/><text x="62" y="122">Needs you?</text><text class="sub" x="62" y="137">flagged to you</text></g>
+        <g class="node on"><rect x="330" y="78" width="100" height="46" rx="9"/><text x="342" y="98">Your VA</text><text class="sub" x="342" y="113">handles it</text></g>
+        <g class="node on"><rect x="190" y="166" width="110" height="46" rx="9"/><text x="202" y="186">RevFlow QA</text><text class="sub" x="202" y="201">reviewed weekly</text></g>
+        <g class="node on"><rect x="10" y="166" width="100" height="46" rx="9"/><text x="22" y="186">Done ✓</text><text class="sub" x="22" y="201">in your EOD</text></g>
+        <circle r="3.5" fill="#c8f169"><animateMotion dur="5s" repeatCount="indefinite" path="M110 45 H160 M270 45 H300 V100 H330 M380 125 V165 H300 M190 190 H110"/></circle>
+        <text x="272" y="36" font-family="JetBrains Mono" font-size="9" fill="#7f8a84">routine</text>
+      </svg>
+      <div class="log mono" id="log"></div>
+    </div></div>
 </section>
 
 <!-- ============ WHO IT'S FOR ============ -->
@@ -692,20 +701,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
 </section>
 
 <!-- ============ WORKFLOW EXPLORER ============ -->
-<section class="sec" id="workflows" style="padding-top:20px">
-  <div class="wrap">
-    <div class="reveal">
-      <p class="eyebrow mono">see it work</p>
-      <h2>Pick your business. <span class="s">Watch it run.</span></h2>
-      <p class="sec-sub">Choose an industry, a VA role or a tech role to see a sample workflow we'd set up for you. Tap any industry or role card on this page to jump here.</p>
-    </div>
-    <div class="wf reveal" id="wfExplorer">
-      <div class="toggle wf-tabs" id="wfTabs" role="tablist" aria-label="Workflow type"></div>
-      <div class="wf-chips" id="wfChips"></div>
-      <div class="glass wf-out" id="wfOut" aria-live="polite"></div>
-    </div>
-  </div>
-</section>
+
 
 <!-- ============ VA ROLES ============ -->
 <section class="sec" id="roles" style="padding-top:20px">
@@ -1010,32 +1006,15 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
         <div>
           <span class="mono role-tag">ceo &amp; founder</span>
           <h3>Dwight Cecillano</h3>
-          <p>Dwight founded RevFlow to give business owners what he wanted for himself: a business that keeps running, and growing, whether he's at his desk, on the road or in another country.</p>
+          <p>Dwight brings experience in US real estate operations, cold calling, CRM administration and managing virtual assistants.</p>
           <a class="mono" href="#apply">work with dwight →</a>
         </div>
-      </article>
-      <!-- TEAM MEMBER TEMPLATE: copy this block for each new member
-      <article class="member reveal">
-        <span class="avatar">AB</span>
-        <div><span class="mono role-tag">role title</span><h3>Full Name</h3><p>One line about what they do for clients.</p></div>
-      </article>
-      -->
-      <article class="member join reveal">
-        <span class="avatar">+</span>
-        <div><span class="mono role-tag">we're growing</span><h3>More team members coming soon</h3><p>Operations, talent and automation leads join here as RevFlow grows.</p></div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ============ CLIENT TESTIMONIALS ============ -->
-<section class="sec" id="testimonials" style="padding-top:20px">
-  <div class="wrap">
-    <div class="reveal"><p class="eyebrow mono">client stories</p><h2>Real businesses. <span class="s">Real experiences.</span></h2><p class="sec-sub">Hear from the businesses we support as RevFlow grows.</p></div>
-    <div class="glass testimonial-empty reveal"><div><h3>Client stories coming soon</h3><p>We are preparing this space for genuine, permission-based client testimonials and case studies. In the meantime, talk with us about your business goals and what support could look like for you.</p></div><a class="btn btn-lime" href="#apply">Book a strategy call →</a></div>
-    <!-- Add approved client quotes and attribution here after receiving permission. Do not publish invented reviews or ratings. -->
-  </div>
-</section>
+
 
 <!-- ============ LIME PANEL ============ -->
 <section style="padding:20px 0 120px">
@@ -1053,8 +1032,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
   <div class="wrap lead-grid">
     <div class="reveal">
       <p class="eyebrow mono">apply now</p>
-      <h2>Start with a free <span class="s">strategy call.</span></h2>
-      <p class="sec-sub">Tell us about your business. We'll reply within one US business day with times for your 30-minute call.</p>
+      <h2>Request a free <span class="s">video discovery call.</span></h2>
+      <p class="sec-sub">Tell us about your business. We'll reply within one US business day to agree on a time for your 30-minute video meeting and send your private meeting link.</p>
       <ul class="get">
         <li><span>01</span>A game plan for your business and goals</li>
         <li><span>02</span>The right VA role for where you are now</li>
@@ -1068,10 +1047,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
         <div class="fgrid">
           <div class="f"><label for="fname">Full name *</label><input id="fname" name="name" autocomplete="name" required></div>
           <div class="f"><label for="femail">Email *</label><input id="femail" name="email" type="email" autocomplete="email" required></div>
-          <div class="f"><label for="fphone">Phone *</label><input id="fphone" name="phone" type="tel" autocomplete="tel" required></div>
+          <div class="f"><label for="fphone">Phone (optional)</label><input id="fphone" name="phone" type="tel" autocomplete="tel"></div>
           <div class="f"><label for="fcompany">Company</label><input id="fcompany" name="company" autocomplete="organization"></div>
-          <div class="f"><label for="fservice">Your industry *</label>
-            <select id="fservice" name="business_type" required>
+          <div class="f"><label for="fservice">Your industry (optional)</label>
+            <select id="fservice" name="business_type">
               <option value="">Choose one</option>
               <option>E-commerce</option><option>Agency or consulting</option><option>Home services</option><option>Healthcare or clinic</option>
               <option>Legal, accounting or finance</option><option>Coach or creator</option><option>SaaS or tech</option><option>Local business</option><option>Real estate</option><option>Other</option>
@@ -1096,19 +1075,16 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
           <label class="chk"><input type="checkbox" id="fconsent" name="consent" required> <span>I agree to be contacted by RevFlow about my inquiry by email, phone or text. Reply STOP to opt out anytime.</span></label>
           <input class="hp" type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
         </div>
-        <button type="submit" class="btn btn-lime" id="submitBtn">Apply for my strategy call <span class="arr">→</span></button>
+        <button type="submit" class="btn btn-lime" id="submitBtn">Request my video call <span class="arr">→</span></button>
         <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
       </form>
       <div class="success rf-celebration" id="success" role="region" aria-labelledby="successTitle" tabindex="-1"><div id="rfConfetti" class="rf-confetti" aria-hidden="true"><span style="--x:5%;--y:5px;--rot:0deg;--d:0.00s;--c:#c8f169"></span><span style="--x:42%;--y:22px;--rot:43deg;--d:0.09s;--c:#eef2ee"></span><span style="--x:79%;--y:39px;--rot:86deg;--d:0.18s;--c:#2fd3b5"></span><span style="--x:25%;--y:56px;--rot:129deg;--d:0.27s;--c:#b3e04f"></span><span style="--x:62%;--y:73px;--rot:172deg;--d:0.36s;--c:#c8f169"></span><span style="--x:8%;--y:90px;--rot:215deg;--d:0.45s;--c:#eef2ee"></span><span style="--x:45%;--y:15px;--rot:258deg;--d:0.54s;--c:#2fd3b5"></span><span style="--x:82%;--y:32px;--rot:301deg;--d:0.63s;--c:#b3e04f"></span><span style="--x:28%;--y:49px;--rot:344deg;--d:0.72s;--c:#c8f169"></span><span style="--x:65%;--y:66px;--rot:27deg;--d:0.00s;--c:#eef2ee"></span><span style="--x:11%;--y:83px;--rot:70deg;--d:0.09s;--c:#2fd3b5"></span><span style="--x:48%;--y:8px;--rot:113deg;--d:0.18s;--c:#b3e04f"></span><span style="--x:85%;--y:25px;--rot:156deg;--d:0.27s;--c:#c8f169"></span><span style="--x:31%;--y:42px;--rot:199deg;--d:0.36s;--c:#eef2ee"></span><span style="--x:68%;--y:59px;--rot:242deg;--d:0.45s;--c:#2fd3b5"></span><span style="--x:14%;--y:76px;--rot:285deg;--d:0.54s;--c:#b3e04f"></span><span style="--x:51%;--y:93px;--rot:328deg;--d:0.63s;--c:#c8f169"></span><span style="--x:88%;--y:18px;--rot:11deg;--d:0.72s;--c:#eef2ee"></span><span style="--x:34%;--y:35px;--rot:54deg;--d:0.00s;--c:#2fd3b5"></span><span style="--x:71%;--y:52px;--rot:97deg;--d:0.09s;--c:#b3e04f"></span><span style="--x:17%;--y:69px;--rot:140deg;--d:0.18s;--c:#c8f169"></span><span style="--x:54%;--y:86px;--rot:183deg;--d:0.27s;--c:#eef2ee"></span><span style="--x:91%;--y:11px;--rot:226deg;--d:0.36s;--c:#2fd3b5"></span><span style="--x:37%;--y:28px;--rot:269deg;--d:0.45s;--c:#b3e04f"></span><span style="--x:74%;--y:45px;--rot:312deg;--d:0.54s;--c:#c8f169"></span><span style="--x:20%;--y:62px;--rot:355deg;--d:0.63s;--c:#eef2ee"></span><span style="--x:57%;--y:79px;--rot:38deg;--d:0.72s;--c:#2fd3b5"></span><span style="--x:94%;--y:96px;--rot:81deg;--d:0.00s;--c:#b3e04f"></span><span style="--x:40%;--y:21px;--rot:124deg;--d:0.09s;--c:#c8f169"></span><span style="--x:77%;--y:38px;--rot:167deg;--d:0.18s;--c:#eef2ee"></span><span style="--x:23%;--y:55px;--rot:210deg;--d:0.27s;--c:#2fd3b5"></span><span style="--x:60%;--y:72px;--rot:253deg;--d:0.36s;--c:#b3e04f"></span><span style="--x:6%;--y:89px;--rot:296deg;--d:0.45s;--c:#c8f169"></span><span style="--x:43%;--y:14px;--rot:339deg;--d:0.54s;--c:#eef2ee"></span><span style="--x:80%;--y:31px;--rot:22deg;--d:0.63s;--c:#2fd3b5"></span><span style="--x:26%;--y:48px;--rot:65deg;--d:0.72s;--c:#b3e04f"></span></div>
         <div class="big"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg></div>
-        <h3 id="successTitle">You’re in! <span class="s">Talk soon.</span></h3>
-        <p>Your application has been submitted. We’ll reach out within one US business day to discuss your goals and arrange a free strategy call.</p>
+        <h3 id="successTitle">Video call request received.</h3>
+        <p>We’ll email you within one US business day to agree on a time. Once confirmed, we’ll send your private meeting link.</p>
         <div class="rf-next"><span class="mono">WHAT HAPPENS NEXT</span><ol><li>We review your application.</li><li>We discuss your business and priorities.</li><li>We recommend the right support, with no obligation.</li></ol></div>
         <a href="#" class="btn btn-lime" id="bookNow" target="_blank" rel="noopener">Pick a time now <span class="arr">→</span></a>
-        <div class="rf-testimonial-next">
-          <p id="rfRedirectStatus">Continuing to our client stories in <span id="rfCountdown">10</span> seconds.</p>
-          <div class="rf-success-links"><a class="btn btn-lime" id="rfViewStories" href="#testimonials">View client stories now →</a><button type="button" class="btn btn-ghost" id="rfStay">Stay here</button></div>
-        </div>
+
         <div class="rf-success-links"><a class="btn btn-ghost" href="#workflows">Explore our workflows ↗</a><a class="btn btn-ghost" href="#team">Meet the team ↗</a></div>
       </div>
     </div>
@@ -1367,7 +1343,7 @@ $$('[data-plan-pt]').forEach(b => b.addEventListener('click', () => { $('#fplan'
   form.addEventListener('submit', async e => {
     e.preventDefault(); msg.className = 'form-msg'; msg.textContent = '';
     if (btn.disabled || form.elements.namedItem('company_website').value) return; // duplicate or spam bot
-    for (const k of ['name','email','phone','business_type']){
+    for (const k of ['name','email']){
       const field = form.elements.namedItem(k);
       if (!field || !field.value.trim()){ msg.className='form-msg err'; msg.textContent='Please fill in the required fields.'; if(field) field.focus(); return; }
     }
@@ -1404,7 +1380,7 @@ $$('[data-plan-pt]').forEach(b => b.addEventListener('click', () => { $('#fplan'
     } catch(err){
       msg.className = 'form-msg err';
       msg.textContent = err.message === 'activation_required' ? 'Our inquiry form is being activated. Please try again later.' : err.message === 'delivery_rejected' ? 'We couldn’t send your application. Your details are still here. Please try again in a moment.' : 'We couldn’t confirm your application was received. Your details are still here. Please try again later.';
-      btn.disabled = false; btn.innerHTML = 'Apply for my strategy call <span class="arr">→</span>';
+      btn.disabled = false; btn.innerHTML = 'Request my video call <span class="arr">→</span>';
       return;
     }
     // Confirmed delivery must never be changed to failure by optional integrations.
@@ -1418,37 +1394,6 @@ $$('[data-plan-pt]').forEach(b => b.addEventListener('click', () => { $('#fplan'
     confirmation.classList.add('rf-celebrating');
     const book = $('#bookNow');
     if (CONFIG.bookingUrl) book.href = CONFIG.bookingUrl; else book.style.display = 'none';
-    // Fixed ten-second deadline; native fragment navigation.
-    const status = $('#rfRedirectStatus'), count = $('#rfCountdown'), stay = $('#rfStay'), view = $('#rfViewStories');
-    let ticker = null, deadlineTimer = null, stopped = false;
-    const deadline = Date.now() + 10000;
-    const stop = () => {
-      if (stopped) return;
-      stopped = true;
-      clearInterval(ticker);
-      clearTimeout(deadlineTimer);
-      document.removeEventListener('visibilitychange', update);
-      if (status) status.textContent = 'You can explore client stories whenever you’re ready.';
-      if (stay) stay.hidden = true;
-    };
-    const go = () => {
-      if (stopped) return;
-      stop();
-      if (location.hash !== '#testimonials') location.hash = '#testimonials';
-      else { const target = $('#testimonials'); if (target) target.scrollIntoView({block:'start'}); }
-    };
-    function update() {
-      if (stopped) return;
-      const remaining = Math.max(0, Math.ceil((deadline-Date.now())/1000));
-      if (count) count.textContent = String(remaining);
-      if (remaining === 0) go();
-    }
-    if (stay) stay.addEventListener('click',stop,{once:true});
-    if (view) view.addEventListener('click',e=>{e.preventDefault();go();},{once:true});
-    confirmation.querySelectorAll('a:not(#rfViewStories)').forEach(link=>link.addEventListener('click',stop,{once:true}));
-    deadlineTimer = setTimeout(go,10000);
-    ticker = setInterval(update,250);
-    document.addEventListener('visibilitychange',update);
     try {
       if (CONFIG.leadWebhook){
         fetch(CONFIG.leadWebhook, { method:'POST', mode:'no-cors', body: new URLSearchParams(data) }).catch(() => {});
