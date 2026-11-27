@@ -1047,10 +1047,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
         <div class="fgrid">
           <div class="f"><label for="fname">Full name *</label><input id="fname" name="name" autocomplete="name" required></div>
           <div class="f"><label for="femail">Email *</label><input id="femail" name="email" type="email" autocomplete="email" required></div>
-          <div class="f"><label for="fphone">Phone *</label><input id="fphone" name="phone" type="tel" autocomplete="tel" required></div>
+          <div class="f"><label for="fphone">Phone (optional)</label><input id="fphone" name="phone" type="tel" autocomplete="tel"></div>
           <div class="f"><label for="fcompany">Company</label><input id="fcompany" name="company" autocomplete="organization"></div>
-          <div class="f"><label for="fservice">Your industry *</label>
-            <select id="fservice" name="business_type" required>
+          <div class="f"><label for="fservice">Your industry (optional)</label>
+            <select id="fservice" name="business_type">
               <option value="">Choose one</option>
               <option>E-commerce</option><option>Agency or consulting</option><option>Home services</option><option>Healthcare or clinic</option>
               <option>Legal, accounting or finance</option><option>Coach or creator</option><option>SaaS or tech</option><option>Local business</option><option>Real estate</option><option>Other</option>
@@ -1343,7 +1343,7 @@ $$('[data-plan-pt]').forEach(b => b.addEventListener('click', () => { $('#fplan'
   form.addEventListener('submit', async e => {
     e.preventDefault(); msg.className = 'form-msg'; msg.textContent = '';
     if (btn.disabled || form.elements.namedItem('company_website').value) return; // duplicate or spam bot
-    for (const k of ['name','email','phone','business_type']){
+    for (const k of ['name','email']){
       const field = form.elements.namedItem(k);
       if (!field || !field.value.trim()){ msg.className='form-msg err'; msg.textContent='Please fill in the required fields.'; if(field) field.focus(); return; }
     }
